@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply antialiased bg-dark-bg text-dark-text;
+    font-family: var(--font-outfit), system-ui, sans-serif;
+    transition: all 0.3s ease;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-space), system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  
+  .section-title {
+    font-family: var(--font-sora), system-ui, sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  /* Container personnalisé */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Padding de section */
+  .section-padding {
+    @apply py-16 lg:py-24;
+  }
+  
+  /* Background gradients */
+  .gradient-bg {
+    @apply bg-gradient-to-br from-dark-bg via-dark-card to-dark-surface;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent-cyan via-primary-400 to-accent-blue bg-clip-text text-transparent;
+  }
+  
+  .gradient-border {
+    @apply bg-gradient-to-r from-accent-cyan via-primary-400 to-accent-blue p-[1px] rounded-lg;
+  }
+  
+  /* Cards */
+  .card-dark {
+    @apply bg-dark-card/80 backdrop-blur-lg border border-dark-border rounded-xl shadow-2xl;
+  }
+  
+  .card-glass {
+    @apply bg-dark-card/60 backdrop-blur-xl border border-accent-cyan/20 rounded-xl shadow-2xl;
+  }
+  
+  /* Effets néon */
+  .neon-text {
+    text-shadow: 0 0 5px theme('colors.accent.cyan'), 0 0 10px theme('colors.accent.cyan'), 0 0 15px theme('colors.accent.cyan');
+  }
+  
+  .neon-text-soft {
+    text-shadow: 0 0 3px theme('colors.accent.cyan/0.8'), 0 0 6px theme('colors.accent.cyan/0.6');
+  }
+
+  /* Effet signature manuscrite */
+  .signature-text {
+    font-family: var(--font-signature);
+    transform: rotate(-3deg);
+    text-shadow: 
+      0 0 5px theme('colors.accent.cyan'),
+      0 0 10px theme('colors.accent.cyan/0.6'),
+      0 0 15px theme('colors.accent.cyan/0.4');
+    filter: drop-shadow(0 2px 8px rgba(0, 229, 255, 0.3));
+    position: relative;
+    display: inline-block;
+  }
+
+  .signature-text::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, theme('colors.accent.cyan'), transparent);
+    opacity: 0.6;
+    animation: signature-glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes signature-glow {
+    0% { opacity: 0.3; transform: scaleX(0.7); }
+    100% { opacity: 0.8; transform: scaleX(1.1); }
+  }
+
+  /* Style tech pour nom de famille */
+  .tech-name {
+    font-family: var(--font-space);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, 
+      theme('colors.white'), 
+      theme('colors.accent.cyan'), 
+      theme('colors.white'), 
+      theme('colors.accent.cyan')
+    );
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: tech-shimmer 3s ease-in-out infinite;
+    position: relative;
+  }
+
+  .tech-name::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -2px;
+    right: -2px;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, theme('colors.accent.cyan/0.1'), transparent);
+    animation: tech-scan 4s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes tech-shimmer {
+    0%, 100% { background-position: 200% 0; }
+    50% { background-position: -200% 0; }
+  }
+
+  @keyframes tech-scan {
+    0%, 100% { transform: translateX(-100%); opacity: 0; }
+    50% { transform: translateX(100%); opacity: 1; }
+  }
+  
+  .neon-border {
+    box-shadow: 0 0 5px theme('colors.accent.cyan'), 0 0 10px theme('colors.accent.cyan'), inset 0 0 5px theme('colors.accent.cyan');
+    border: 1px solid theme('colors.accent.cyan');
+  }
+  
+  /* Hover effects */
+  .hover-glow {
+    transition: all 0.3s ease;
+  }
+  
+  .hover-glow:hover {
+    box-shadow: 0 0 20px theme('colors.accent.cyan/0.3'), 0 0 40px theme('colors.accent.cyan/0.2');
+    transform: translateY(-2px);
+  }
+  
+  /* Buttons */
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-accent-cyan to-primary-400 text-black font-section font-medium rounded-xl hover-glow transition-all duration-300;
+  }
+  
+  .btn-outline {
+    @apply px-6 py-3 card-glass border-2 border-accent-cyan/70 text-accent-cyan font-section font-medium rounded-xl 
+           hover:border-accent-cyan hover:bg-accent-cyan/10 hover:text-white hover:shadow-lg 
+           hover:shadow-accent-cyan/30 transition-all duration-300;
+  }
+  
+  /* Curseur personnalisé pour la photo interactive */
+  .interactive-photo-area {
+    cursor: none;
+  }
+  
+  .interactive-photo-area::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: theme('colors.accent.cyan');
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: transform 0.1s ease-out;
+  }
+  
+  /* Effet de traînée numérique */
+  .digital-trail {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: theme('colors.accent.cyan');
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.6;
+    animation: fadeOut 0.8s ease-out forwards;
+  }
+  
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+      transform: scale(0);
+    }
+  }
+}
