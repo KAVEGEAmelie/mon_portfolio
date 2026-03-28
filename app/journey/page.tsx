@@ -5,87 +5,72 @@ import { GraduationCap, Briefcase, Award, Calendar, MapPin, Star, Target, Rocket
 
 const timelineData = [
   {
-    year: '2024',
+    year: '2022 - Présent',
     type: 'education',
     icon: GraduationCap,
-    title: 'Licence en Informatique',
-    subtitle: 'Université / École Supérieure',
-    location: 'France',
+    title: 'Génie Logiciel (3ème année)',
+    subtitle: 'Institution Africaine d\'Informatique',
+    location: 'Lomé, Togo',
     status: 'En cours',
-    description: 'Spécialisation en développement web et mobile. Projets académiques avancés en React, Flutter et Node.js avec focus sur les architectures modernes.',
+    description: 'Future diplômée en Génie Logiciel alliant expertise technique et vision managériale. Formation complète en développement full-stack, gestion de projets digitaux et coordination d\'équipes.',
     highlights: [
-      'Développement full-stack moderne',
-      'Méthodologies Agile et DevOps',
-      'Bases de données et API design',
-      'Intelligence artificielle appliquée'
+      'Architecture et conception logicielle',
+      'Développement full-stack avancé',
+      'Gestion de projets digitaux',
+      'Méthodologies Agile et UML/Merise'
     ],
     gradient: 'from-accent-cyan to-primary-400',
   },
   {
-    year: '2023-2024',
+    year: 'Nov 2023 - Présent',
     type: 'project',
     icon: Award,
-    title: 'Projets Portfolio',
-    subtitle: 'Applications web et mobile',
-    location: 'Projets personnels',
-    status: 'Réalisé',
-    description: 'Développement de plusieurs applications innovantes incluant OwoCash, portfolio moderne et applications e-commerce avec focus sur l\'expérience utilisateur.',
+    title: 'Application de Gestion Multi-Caisses',
+    subtitle: 'Projet d\'évaluation',
+    location: 'Lomé, Togo',
+    status: 'En développement',
+    description: 'Conception et développement d\'une application Flutter complète pour la gestion de plusieurs caisses connectées à une base de données MySQL avec gestion des ouvertures/clôtures et rapports automatiques.',
     highlights: [
-      'Architecture MVVM et clean code',
-      'Animations et micro-interactions',
-      'Performance et optimisation SEO',
-      'Design responsive et accessible'
+      'Architecture Flutter & MySQL',
+      'Gestion des sessions de caisse',
+      'Rapports automatiques',
+      'Interface multi-utilisateurs'
     ],
     gradient: 'from-accent-purple to-accent-cyan',
   },
   {
-    year: '2023',
+    year: 'Juil - Sept 2024',
     type: 'experience',
     icon: Briefcase,
-    title: 'Stage Développement Web',
-    subtitle: 'Entreprise Tech Innovante',
-    location: 'France',
+    title: 'Développeuse',
+    subtitle: 'THESYMO Technologies',
+    location: 'Lomé, Togo',
     status: 'Terminé',
-    description: 'Participation active au développement d\'applications web modernes. Collaboration étroite avec l\'équipe sur des projets React et contribution significative au codebase.',
+    description: 'Participation active au développement de la plateforme TogoStartup. Intégration et maintenance des fonctionnalités web avec focus sur l\'expérience utilisateur et la performance. Participation au programme C4S prévu en juin 2025.',
     highlights: [
-      'Développement React/Next.js en équipe',
-      'Code review et pair programming',
-      'Tests automatisés et CI/CD',
-      'Méthodologies Agile en pratique'
+      'Développement plateforme TogoStartup',
+      'Intégration de fonctionnalités web',
+      'Maintenance et optimisation',
+      'Collaboration équipe technique',
+      'C4S - Juin 2025'
     ],
     gradient: 'from-accent-green to-accent-blue',
   },
+
   {
-    year: '2022-2023',
+    year: 'Sept 2021 - Juil 2022',
     type: 'education',
     icon: GraduationCap,
-    title: 'BTS Informatique',
-    subtitle: 'Services Informatiques aux Organisations',
-    location: 'France',
+    title: 'Baccalauréat série D',
+    subtitle: 'Semeur Divin',
+    location: 'Lomé, Togo',
     status: 'Diplômée',
-    description: 'Formation complète en informatique avec spécialisation en développement et gestion de projets. Acquisition des fondamentaux solides en programmation.',
+    description: 'Obtention du Baccalauréat scientifique série D avec excellence, ouvrant la voie vers les études supérieures en informatique et consolidant les bases scientifiques.',
     highlights: [
-      'Programmation orientée objet',
-      'Gestion de projets informatiques',
-      'Réseaux et systèmes',
-      'Base de données relationnelles'
-    ],
-    gradient: 'from-accent-yellow to-accent-green',
-  },
-  {
-    year: '2021-2022',
-    type: 'discovery',
-    icon: Star,
-    title: 'Découverte du Développement',
-    subtitle: 'Passion née',
-    location: 'Auto-apprentissage',
-    status: 'Fondateur',
-    description: 'Première approche du développement web à travers des cours en ligne et projets personnels. Coup de foudre pour la programmation et la création digitale.',
-    highlights: [
-      'HTML, CSS, JavaScript basics',
-      'Premiers projets web statiques',
-      'Découverte de React',
-      'Passion pour le design UI/UX'
+      'Formation scientifique solide',
+      'Excellence académique',
+      'Bases mathématiques avancées',
+      'Préparation études supérieures'
     ],
     gradient: 'from-accent-cyan to-accent-purple',
   }
@@ -94,22 +79,22 @@ const timelineData = [
 const goals = [
   {
     icon: Target,
-    title: 'Court terme',
+    title: 'Objectifs immédiats',
     items: [
-      'Finaliser ma licence en informatique',
-      'Maîtriser TypeScript et Next.js 14',
-      'Contribuer à des projets open source',
-      'Développer mes compétences en design'
+      'Finaliser ma formation en Génie Logiciel à l\'IAI-Togo',
+      'Approfondir mes compétences en Laravel et Spring Boot',
+      'Contribuer à des projets open source africains'
     ]
   },
   {
     icon: Rocket,
-    title: 'Long terme',
+    title: 'Vision professionnelle',
     items: [
-      'Devenir développeuse full-stack senior',
-      'Créer ma propre startup tech',
-      'Mentorer d\'autres développeuses',
-      'Explorer l\'IA et les nouvelles technologies'
+      'Devenir chef de projet en transformation digitale',
+      'Piloter des projets technologiques à fort impact au Togo',
+      'Créer des solutions innovantes pour l\'écosystème africain',
+      'Mentorer la nouvelle génération de développeurs togolais',
+      'Devenir DevSecOps pour intégrer sécurité et développement'
     ]
   }
 ]
@@ -118,11 +103,11 @@ export default function Journey() {
   return (
     <div className="min-h-screen pt-20 bg-dark-bg">
       {/* Hero Section */}
-      <section className="section-padding relative overflow-hidden">
+      <section className="py-8 md:py-12 relative overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 bg-gradient-to-br from-dark-bg via-dark-card to-dark-surface opacity-50" />
-        <div className="absolute top-20 right-20 w-96 h-96 rounded-full blur-3xl bg-accent-cyan/10" />
-        <div className="absolute bottom-20 left-20 w-96 h-96 rounded-full blur-3xl bg-primary-400/10" />
+        <div className="absolute top-10 right-10 w-64 h-64 rounded-full blur-3xl bg-accent-cyan/10" />
+        <div className="absolute bottom-10 left-10 w-64 h-64 rounded-full blur-3xl bg-primary-400/10" />
 
         <div className="container-custom relative z-10">
           <motion.div
@@ -145,7 +130,7 @@ export default function Journey() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-4xl md:text-6xl font-title font-bold mb-6 text-dark-text"
+              className="text-3xl md:text-5xl font-title font-bold mb-4 text-dark-text"
             >
               Mon <span className="gradient-text neon-text-soft">voyage</span> tech
             </motion.h1>
@@ -154,22 +139,22 @@ export default function Journey() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-xl text-dark-muted leading-relaxed font-body"
+              className="text-lg text-dark-muted leading-relaxed font-body"
             >
-              De la découverte passionnée à l'expertise technique, retour sur les étapes clés qui ont façonné ma carrière
+              De la découverte passionnée à l'expertise technique en développement, retour sur mon parcours de formation à l'IAI-Togo et mes expériences dans l'écosystème tech togolais
             </motion.p>
           </motion.div>
         </div>
       </section>
 
       {/* Timeline Section */}
-      <section className="section-padding">
+      <section className="py-6 md:py-10">
         <div className="container-custom">
           <div className="relative">
             {/* Ligne de timeline */}
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent-cyan via-primary-400 to-accent-cyan rounded-full" />
 
-            <div className="space-y-12">
+            <div className="space-y-8">
               {timelineData.map((item, index) => (
                 <motion.div
                   key={index}
@@ -194,12 +179,12 @@ export default function Journey() {
                   {/* Card de contenu */}
                   <motion.div
                     whileHover={{ scale: 1.02, y: -2 }}
-                    className="card-glass p-6 rounded-xl hover-glow"
+                    className="card-glass p-4 rounded-xl hover-glow"
                   >
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <h3 className="text-xl font-section font-bold text-dark-text">
+                        <div className="flex items-center gap-3 mb-3">
+                          <h3 className="text-lg font-section font-bold text-dark-text">
                             {item.title}
                           </h3>
                           <span className={`px-3 py-1 rounded-full text-xs font-section ${
@@ -226,7 +211,7 @@ export default function Journey() {
                       </div>
                     </div>
 
-                    <p className="text-dark-muted leading-relaxed font-body mb-4">
+                    <p className="text-dark-muted leading-relaxed font-body mb-3">
                       {item.description}
                     </p>
 
@@ -255,24 +240,24 @@ export default function Journey() {
       </section>
 
       {/* Section Objectifs */}
-      <section className="section-padding bg-dark-surface/30">
+      <section className="py-8 md:py-12 bg-dark-surface/30">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-8"
           >
-            <h2 className="text-3xl md:text-4xl font-title font-bold text-dark-text mb-4">
+            <h2 className="text-2xl md:text-3xl font-title font-bold text-dark-text mb-3">
               Mes <span className="gradient-text neon-text-soft">objectifs</span>
             </h2>
             <p className="text-dark-muted max-w-2xl mx-auto font-body">
-              Les prochaines étapes de mon évolution professionnelle et mes ambitions futures
+              De l'IAI-Togo vers l'excellence : objectifs et ambitions pour l'écosystème tech africain
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             {goals.map((goal, index) => (
               <motion.div
                 key={goal.title}
@@ -281,9 +266,9 @@ export default function Journey() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 whileHover={{ scale: 1.02, y: -5 }}
-                className="card-glass p-6 rounded-xl hover-glow"
+                className="card-glass p-5 rounded-xl hover-glow"
               >
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-3 mb-4">
                   <motion.div
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.5 }}
@@ -291,12 +276,12 @@ export default function Journey() {
                   >
                     <goal.icon className="w-6 h-6 text-black" />
                   </motion.div>
-                  <h3 className="text-xl font-section font-bold text-dark-text">
+                  <h3 className="text-lg font-section font-bold text-dark-text">
                     {goal.title}
                   </h3>
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-2">
                   {goal.items.map((item, i) => (
                     <motion.div
                       key={i}
@@ -318,7 +303,7 @@ export default function Journey() {
       </section>
 
       {/* Section Call to Action */}
-      <section className="section-padding">
+      <section className="py-8 md:py-12">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
@@ -326,7 +311,7 @@ export default function Journey() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="card-glass p-8 rounded-xl"
+              className="card-glass p-6 md:p-8 rounded-xl"
             >
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -338,25 +323,19 @@ export default function Journey() {
                 <Rocket className="w-8 h-8 text-black" />
               </motion.div>
 
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-2xl md:text-3xl font-title font-bold text-dark-text mb-4"
-              >
-                Prête pour de nouveaux <span className="gradient-text neon-text-soft">défis</span>
-              </motion.h2>
+              <h2 className="text-xl md:text-2xl font-title font-bold text-dark-text mb-3">
+                Prête pour de nouveaux <span className="gradient-text neon-text-soft">défis</span> au Togo
+              </h2>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-dark-muted leading-relaxed font-body mb-6"
+                className="text-dark-muted leading-relaxed font-body mb-5"
               >
-                Mon parcours ne fait que commencer ! Je suis toujours en quête de nouvelles opportunités 
-                pour apprendre, créer et collaborer sur des projets innovants qui font la différence.
+                Mon parcours de formation à l'IAI-Togo m'a préparée à relever les défis du secteur technologique. 
+                Je suis motivée à piloter des projets de transformation digitale qui ont un impact réel sur l'écosystème togolais et africain.
               </motion.p>
 
               <motion.a
@@ -372,213 +351,6 @@ export default function Journey() {
                 <Rocket className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </motion.a>
             </motion.div>
-          </div>
-        </div>
-      </section>
-    </div>
-  )
-}
-    subtitle: 'Formation technique',
-    description: 'Formation approfondie en programmation, bases de données et développement d\'applications.',
-    highlights: [
-      'Programmation orientée objet',
-      'SQL et bases de données',
-      'Développement d\'applications',
-    ],
-  },
-  {
-    year: '2022',
-    type: 'project',
-    icon: Award,
-    title: 'Premiers projets Flutter',
-    subtitle: 'Découverte du développement mobile',
-    description: 'Réalisation de plusieurs applications mobiles pour apprendre Flutter et Dart.',
-    highlights: [
-      'Applications météo',
-      'To-do lists',
-      'Calculatrices avancées',
-    ],
-  },
-  {
-    year: '2021',
-    type: 'education',
-    icon: GraduationCap,
-    title: 'Baccalauréat Scientifique',
-    subtitle: 'Lycée',
-    description: 'Option Mathématiques et Informatique. Premiers pas dans le monde de la programmation.',
-    highlights: [
-      'Initiation à Python',
-      'Algorithmique',
-      'Projet scientifique',
-    ],
-  },
-]
-
-const typeConfig = {
-  education: {
-    color: 'from-blue-500 to-blue-600',
-    bgColor: 'bg-blue-50',
-    borderColor: 'border-blue-200',
-  },
-  experience: {
-    color: 'from-purple-500 to-purple-600',
-    bgColor: 'bg-purple-50',
-    borderColor: 'border-purple-200',
-  },
-  project: {
-    color: 'from-green-500 to-green-600',
-    bgColor: 'bg-green-50',
-    borderColor: 'border-green-200',
-  },
-}
-
-export default function Journey() {
-  return (
-    <div className="min-h-screen pt-20">
-      {/* Hero Section */}
-      <section className="section-padding gradient-bg">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <h1 className="text-5xl md:text-6xl font-display font-bold mb-6">
-              Mon <span className="gradient-text">Parcours</span>
-            </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Un voyage d'apprentissage continu et de passion pour la technologie
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Timeline Section */}
-      <section className="section-padding bg-white">
-        <div className="container-custom max-w-5xl">
-          <div className="relative">
-            {/* Ligne verticale */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b
-                          from-primary-300 via-primary-400 to-primary-300 transform md:-translate-x-1/2" />
-
-            {/* Timeline Items */}
-            <div className="space-y-12">
-              {timelineData.map((item, index) => {
-                const Icon = item.icon
-                const config = typeConfig[item.type as keyof typeof typeConfig]
-                const isEven = index % 2 === 0
-
-                return (
-                  <motion.div
-                    key={`${item.year}-${index}`}
-                    initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className={`relative flex items-center ${
-                      isEven ? 'md:flex-row' : 'md:flex-row-reverse'
-                    }`}
-                  >
-                    {/* Content Card */}
-                    <div className={`w-full md:w-5/12 ml-20 md:ml-0 ${
-                      isEven ? 'md:pr-12' : 'md:pl-12'
-                    }`}>
-                      <div className={`bg-white rounded-xl shadow-lg border-2 ${config.borderColor}
-                                    overflow-hidden card-hover`}>
-                        {/* Header */}
-                        <div className={`bg-gradient-to-r ${config.color} p-4 text-white`}>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                              <Icon className="w-5 h-5" />
-                              <span className="font-bold">{item.title}</span>
-                            </div>
-                            <div className="flex items-center gap-1.5 text-xs bg-white/20 px-2 py-1 rounded-full">
-                              <Calendar className="w-3 h-3" />
-                              {item.year}
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Body */}
-                        <div className="p-6">
-                          <h4 className="text-sm font-semibold text-gray-500 mb-3">
-                            {item.subtitle}
-                          </h4>
-                          <p className="text-gray-700 leading-relaxed mb-4">
-                            {item.description}
-                          </p>
-                          <div className="space-y-2">
-                            {item.highlights.map((highlight, idx) => (
-                              <div key={idx} className="flex items-start gap-2 text-sm">
-                                <div className="w-1.5 h-1.5 rounded-full bg-primary-500 mt-1.5 flex-shrink-0" />
-                                <span className="text-gray-600">{highlight}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Center Icon */}
-                    <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2
-                                  w-16 h-16 rounded-full bg-white border-4 border-primary-300
-                                  shadow-lg flex items-center justify-center z-10">
-                      <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${config.color}
-                                    flex items-center justify-center text-white`}>
-                        <Icon className="w-6 h-6" />
-                      </div>
-                    </div>
-
-                    {/* Spacer for alignment */}
-                    <div className="hidden md:block w-5/12" />
-                  </motion.div>
-                )
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section Statistiques */}
-      <section className="section-padding bg-gradient-to-br from-primary-600 to-primary-800 text-white">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
-              En chiffres
-            </h2>
-            <p className="text-primary-100 text-lg">
-              Mon parcours résumé en quelques statistiques
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-            {[
-              { number: '3+', label: 'Années d\'expérience' },
-              { number: '10+', label: 'Projets réalisés' },
-              { number: '6+', label: 'Technologies maîtrisées' },
-              { number: '∞', label: 'Passion pour le code' },
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-5xl md:text-6xl font-bold mb-3">
-                  {stat.number}
-                </div>
-                <div className="text-primary-100">{stat.label}</div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>

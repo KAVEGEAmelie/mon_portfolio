@@ -2,13 +2,14 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Camera, Heart } from 'lucide-react';
+import { Github, Linkedin, Mail, Instagram, MessageCircle, Heart } from 'lucide-react';
 
 const socialLinks = [
-  { icon: Github, href: 'https://github.com/amelie', label: 'GitHub' },
-  { icon: Linkedin, href: 'https://linkedin.com/in/amelie', label: 'LinkedIn' },
-  { icon: Mail, href: 'mailto:amelie@example.com', label: 'Email' },
-  { icon: Camera, href: '#photography', label: 'Photographie' },
+  { icon: Github, href: 'https://github.com/KAVEGEAmelie', label: 'GitHub' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/amkvg/', label: 'LinkedIn' },
+  { icon: Instagram, href: 'https://www.instagram.com/amelie_kaa/', label: 'Instagram' },
+  { icon: MessageCircle, href: 'https://wa.me/+22892236069', label: 'WhatsApp' },
+  { icon: Mail, href: 'mailto:kavegeamelie@gmail.com', label: 'Gmail' },
 ];
 
 export default function Footer() {
@@ -35,7 +36,7 @@ export default function Footer() {
               Amélie KAVEGE
             </h3>
             <p className="text-sm font-body text-dark-muted leading-relaxed">
-              Développeuse Web & Mobile passionnée par la création d'expériences numériques exceptionnelles et la photographie.
+              Développeuse Web & Mobile passionnée par la création d&apos;expériences numériques exceptionnelles. Connectons-nous !
             </p>
           </motion.div>
 
@@ -73,7 +74,7 @@ export default function Footer() {
             className="space-y-4"
           >
             <h4 className="text-lg font-section font-semibold text-dark-text">
-              Connectons-nous
+              Me suivre sur les réseaux
             </h4>
             <div className="flex space-x-4">
               {socialLinks.map((social) => (

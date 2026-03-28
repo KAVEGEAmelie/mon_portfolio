@@ -48,7 +48,7 @@ export default function Footer() {
               Amélie KAVEGE
             </h3>
             <p className="text-primary-200 text-sm leading-relaxed">
-              Développeuse Web & Mobile passionnée par la création d'expériences digitales modernes et performantes.
+              Développeuse Web & Mobile passionnée par la création d&apos;expériences digitales modernes et performantes.
             </p>
           </motion.div>
 

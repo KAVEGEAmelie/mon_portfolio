@@ -14,37 +14,36 @@ export default function Home() {
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
             animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 180, 360],
+              scale: [1, 1.05, 1],
             }}
             transition={{
-              duration: 20,
+              duration: 8,
               repeat: Infinity,
-              ease: "linear"
+              ease: "easeInOut"
             }}
             className="absolute -top-20 -right-20 w-96 h-96 bg-accent-cyan/10 rounded-full blur-3xl"
           />
           <motion.div
             animate={{
-              scale: [1, 1.3, 1],
-              rotate: [360, 180, 0],
+              scale: [1, 1.08, 1],
             }}
             transition={{
-              duration: 25,
+              duration: 10,
               repeat: Infinity,
-              ease: "linear"
+              ease: "easeInOut",
+              delay: 2
             }}
             className="absolute -bottom-20 -left-20 w-96 h-96 bg-primary-400/10 rounded-full blur-3xl"
           />
           <motion.div
             animate={{
-              scale: [1, 1.1, 1],
-              rotate: [180, 0, 180],
+              scale: [1, 1.03, 1],
             }}
             transition={{
-              duration: 15,
+              duration: 6,
               repeat: Infinity,
-              ease: "linear"
+              ease: "easeInOut",
+              delay: 4
             }}
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-accent-blue/5 rounded-full blur-3xl"
           />
@@ -110,7 +109,7 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="text-base md:text-lg text-dark-muted mb-8 max-w-2xl lg:max-w-lg leading-relaxed font-body"
               >
-                Passionnée par la création d'expériences digitales modernes et performantes.
+                Passionnée par la création d&apos;expériences digitales modernes et performantes.
                 {/* Spécialisée en <span className="text-accent-cyan font-semibold">React</span>,{' '}
                 <span className="text-accent-cyan font-semibold">Next.js</span> et{' '}
                 <span className="text-accent-cyan font-semibold">Flutter</span>. */}
@@ -206,7 +205,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
                 icon: '🌐',
@@ -222,6 +221,11 @@ export default function Home() {
                 icon: '⚙️',
                 title: 'Applications de Gestion',
                 description: 'Solutions complètes avec backend Node.js et bases de données',
+              },
+              {
+                icon: '🎙️',
+                title: 'Leadership & Événementiel Tech',
+                description: 'Co-organisatrice d\'événements majeurs (DevFest 2023, TCD 24/25) et ex-Event Planner pour le GDSC IAI-Togo. J\'aime dynamiser l\'écosystème tech et partager mes connaissances.',
               },
             ].map((service, index) => (
               <motion.div
