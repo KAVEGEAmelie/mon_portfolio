@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Heart, Target, Zap, Users, Code2, BookOpen, Dumbbell, Sparkles, Award, Calendar, Megaphone } from 'lucide-react'
+import { Heart, Target, Zap, Users, Code2, BookOpen, Dumbbell, Sparkles, Calendar, Megaphone } from 'lucide-react'
 
 export default function About() {
   const values = [
@@ -149,7 +149,7 @@ export default function About() {
                   { number: '3+', label: 'Années de formation IAI-Togo' },
                   { number: '15+', label: 'Projets réalisés & académiques' },
                   { number: '10+', label: 'Technologies maîtrisées' },
-                  { number: '100%', label: 'Passion & Engagement' },
+                  { number: '3+', label: 'Événements tech co-organisés' },
                 ].map((stat, index) => (
                   <motion.div
                     key={stat.label}
@@ -172,7 +172,7 @@ export default function About() {
               <div className="card-glass p-4 rounded-xl">
                 <h3 className="text-base font-section font-semibold text-accent-cyan mb-3 flex items-center gap-2">
                   <Heart className="w-4 h-4" />
-                  L&apos;élégance dans le sport et la lecture
+                  Au-delà du code
                 </h3>
                 <div className="grid grid-cols-2 gap-3">
                   {interests.map((interest, index) => (
@@ -194,8 +194,7 @@ export default function About() {
                 <div className="mt-4 p-3 bg-dark-surface/30 rounded-lg text-xs text-dark-muted font-body leading-relaxed">
                   "Quand je ne suis pas devant mon terminal, je cultive mon sens de l'esthétique et mon esprit d'équipe. 
                   Passionnée de <span className="text-accent-blue font-medium">basketball</span> au sein de l'équipe Helrich, 
-                  grande lectrice de <span className="text-accent-cyan font-medium">romans</span>, et amoureuse de tout ce qui touche à la 
-                  <span className="text-accent-blue font-medium">mode</span> - j'apporte ce soin du détail et du 'chic' dans tout ce que j'entreprends."
+                  grande lectrice de <span className="text-accent-cyan font-medium">romans</span>, et amoureuse de tout ce qui touche à la <span className="text-accent-blue font-medium">mode</span> - j'apporte ce soin du détail et du 'chic' dans tout ce que j'entreprends."
                 </div>
               </div>
             </motion.div>
@@ -229,7 +228,7 @@ export default function About() {
               transition={{ duration: 0.6 }}
               className="card-glass p-6 md:p-8 rounded-xl"
             >
-              <div className="grid md:grid-cols-3 gap-6 mb-6">
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
                 {/* GDSC */}
                 <motion.div
                   whileHover={{ scale: 1.05 }}
@@ -269,26 +268,6 @@ export default function About() {
                     DevFest 2023 & TCD 24/25
                   </p>
                 </motion.div>
-
-                {/* Microsoft Trainer */}
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  className="text-center p-4 bg-dark-surface/50 rounded-lg"
-                >
-                  <motion.div
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.5 }}
-                    className="inline-block p-3 bg-gradient-to-br from-accent-yellow to-accent-orange rounded-full mb-3"
-                  >
-                    <Award className="w-6 h-6 text-black" />
-                  </motion.div>
-                  <h3 className="text-sm font-section font-bold text-accent-cyan mb-2">
-                    Microsoft Trainer
-                  </h3>
-                  <p className="text-xs text-dark-muted font-body">
-                    Certifié by Zindi
-                  </p>
-                </motion.div>
               </div>
 
               <div className="text-dark-muted leading-relaxed font-body space-y-4">
@@ -300,8 +279,7 @@ export default function About() {
                   j'ai appris à coordonner des équipes multidisciplinaires et à piloter des projets à fort impact.
                 </p>
                 <p>
-                  Reconnue comme <span className="text-accent-yellow font-semibold">Microsoft Trainer by Zindi</span>, 
-                  j'ai à cœur de transmettre mon savoir et d'accompagner la transformation digitale de mon entourage. 
+                  J'ai à cœur de transmettre mon savoir et d'accompagner la transformation digitale de mon entourage. 
                   Cette dimension humaine nourrit ma rigueur et ma{' '}
                   <span className="text-accent-cyan font-semibold">vision managériale de développeuse</span>.
                 </p>

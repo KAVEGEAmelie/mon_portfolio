@@ -52,13 +52,18 @@ export default function Footer() {
               Navigation rapide
             </h4>
             <div className="grid grid-cols-2 gap-2">
-              {['Accueil', 'Projets', 'Compétences', 'Contact'].map((link) => (
-                <Link key={link} href={`/${link.toLowerCase()}`}>
+              {[
+                { name: 'Accueil', href: '/' },
+                { name: 'Projets', href: '/projects' },
+                { name: 'Compétences', href: '/skills' },
+                { name: 'Contact', href: '/contact' },
+              ].map((link) => (
+                <Link key={link.name} href={link.href}>
                   <motion.span
                     whileHover={{ x: 5 }}
                     className="block text-sm font-body text-dark-muted hover:text-accent-cyan transition-colors"
                   >
-                    → {link}
+                    → {link.name}
                   </motion.span>
                 </Link>
               ))}

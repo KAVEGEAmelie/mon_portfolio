@@ -6,33 +6,35 @@ import { Code2, Smartphone, Server, Wrench, Database, Palette, Terminal, Layers,
 
 const skillsData = [
   {
-    category: 'Backend & Architecture',
+    category: 'Backend',
     terminalCommand: '> execute backend_stack.exe',
     icon: Server,
     color: 'from-accent-cyan to-primary-400',
-    codeSnippet: `// Laravel API Routes
-Route::middleware('auth:api')->get('/user', function ($request) {
-    return $request->user();
+    codeSnippet: `// Express + Socket.IO
+io.on('connection', (socket) => {
+  socket.on('message', (msg) => io.emit('message', msg));
 });`,
     skills: [
+      { name: 'Node.js / Express', level: 85 },
       { name: 'Laravel', level: 88 },
       { name: 'Spring Boot', level: 82 },
-      { name: 'Node.js', level: 85 },
       { name: 'API REST', level: 90 },
+      { name: 'Socket.IO', level: 75 },
+      { name: 'Paiements (FedaPay / Stripe)', level: 78 },
     ],
   },
   {
     category: 'Développement Web',
-    terminalCommand: '> compile web_applications.php',
+    terminalCommand: '> compile web_applications.ts',
     icon: Code2,
     color: 'from-accent-blue to-accent-purple',
-    codeSnippet: `// Laravel Eloquent Models
-$users = User::with('projects')
-    ->where('active', true)
-    ->orderBy('created_at', 'desc')
-    ->get();`,
+    codeSnippet: `// Angular Component
+@Component({ selector: 'app-projects' })
+export class ProjectsComponent {
+  projects$ = this.api.getProjects();
+}`,
     skills: [
-      { name: 'Laravel', level: 70 },
+      { name: 'Angular', level: 85 },
       { name: 'React / Next.js', level: 60 },
       { name: 'JavaScript / TypeScript', level: 70 },
       { name: 'Tailwind CSS', level: 60 },
@@ -57,8 +59,8 @@ class MyWidget extends StatefulWidget {
     ],
   },
   {
-    category: 'Backend & Database',
-    terminalCommand: '> initialize backend_systems.sql',
+    category: 'Bases de données',
+    terminalCommand: '> initialize databases.sql',
     icon: Database,
     color: 'from-accent-green to-accent-cyan',
     codeSnippet: `-- MySQL Query Optimization
@@ -68,8 +70,8 @@ WHERE u.active = 1;`,
     skills: [
       { name: 'MySQL', level: 88 },
       { name: 'PostgreSQL', level: 82 },
-      { name: 'Node.js', level: 75 },
       { name: 'Firebase', level: 80 },
+      { name: 'Prisma ORM', level: 72 },
     ],
   },
   {
@@ -380,6 +382,7 @@ export default function Skills() {
                 {learningTechnologies.map((tech, index) => (
                   <motion.div
                     key={`second-${tech.name}`}
+                    aria-hidden="true"
                     className="flex-shrink-0 flex items-center gap-3 bg-dark-surface/50 px-4 py-2 rounded-lg border border-accent-cyan/10 hover:border-accent-cyan/30 transition-all"
                   >
                     <span className="text-2xl animate-pulse">{tech.icon}</span>
@@ -405,9 +408,9 @@ export default function Skills() {
             >
               {[
                 { value: '8+', label: 'Technologies explorées' },
-                { value: '24/7', label: 'Veille technologique' },
+                { value: '15+', label: 'Projets réalisés' },
+                { value: '3+', label: 'Années de pratique' },
                 { value: '∞', label: 'Curiosité technique' },
-                { value: '100%', label: 'Passion d\'apprendre' },
               ].map((stat, index) => (
                 <motion.div
                   key={stat.label}

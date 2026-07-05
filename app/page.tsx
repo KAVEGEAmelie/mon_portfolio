@@ -225,7 +225,7 @@ export default function Home() {
               {
                 icon: '🎙️',
                 title: 'Leadership & Événementiel Tech',
-                description: 'Co-organisatrice d\'événements majeurs (DevFest 2023, TCD 24/25) et ex-Event Planner pour le GDSC IAI-Togo. J\'aime dynamiser l\'écosystème tech et partager mes connaissances.',
+                description: 'Co-organisation d\'événements tech majeurs : DevFest 2023, TCD 24/25, GDSC IAI-Togo',
               },
             ].map((service, index) => (
               <motion.div

@@ -98,6 +98,7 @@ export default function InteractiveProfile() {
         >
           {/* Image principale (face) */}
           <motion.div
+            className="absolute inset-0"
             animate={{
               scale: isHovered ? [1, 1.1, 1.05, 1] : 1,
               opacity: isHovered ? [1, 0.3, 1] : 1,
@@ -112,6 +113,7 @@ export default function InteractiveProfile() {
               src="/images/profile.jpg"
               alt="Amélie KAVEGE - Développeuse Web & Mobile"
               fill
+              priority
               className={`object-cover ${
                 isHovered 
                   ? 'profile-main-filter'
