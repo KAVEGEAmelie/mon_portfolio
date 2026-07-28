@@ -1,9 +1,52 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, MapPin, Phone, Send, Github, Linkedin, CheckCircle, MessageCircle, Calendar } from 'lucide-react'
+import { Mail, MapPin, Phone, Send, Github, Linkedin, CheckCircle, MessageCircle, Calendar, Mic, MicOff } from 'lucide-react'
 import emailjs from '@emailjs/browser'
+
+// TypeScript types for SpeechRecognition (not yet in standard lib)
+interface ISpeechRecognition extends EventTarget {
+  lang: string
+  continuous: boolean
+  interimResults: boolean
+  onstart: (() => void) | null
+  onend: (() => void) | null
+  onerror: ((event: Event) => void) | null
+  onresult: ((event: ISpeechRecognitionEvent) => void) | null
+  start(): void
+  stop(): void
+}
+
+interface ISpeechRecognitionResult {
+  readonly length: number
+  item(index: number): ISpeechRecognitionAlternative
+  [index: number]: ISpeechRecognitionAlternative
+}
+
+interface ISpeechRecognitionAlternative {
+  readonly transcript: string
+  readonly confidence: number
+}
+
+interface ISpeechRecognitionEvent extends Event {
+  readonly resultIndex: number
+  readonly results: ISpeechRecognitionResultList
+}
+
+interface ISpeechRecognitionResultList {
+  readonly length: number
+  item(index: number): ISpeechRecognitionResult
+  [index: number]: ISpeechRecognitionResult
+  [Symbol.iterator](): Iterator<ISpeechRecognitionResult>
+}
+
+declare global {
+  interface Window {
+    SpeechRecognition: new () => ISpeechRecognition
+    webkitSpeechRecognition: new () => ISpeechRecognition
+  }
+}
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -14,6 +57,47 @@ export default function Contact() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isListening, setIsListening] = useState(false)
+  const [isSpeechSupported, setIsSpeechSupported] = useState(false)
+  const recognitionRef = useRef<ISpeechRecognition | null>(null)
+
+  useEffect(() => {
+    setIsSpeechSupported(
+      typeof window !== 'undefined' &&
+      ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window)
+    )
+  }, [])
+
+  const toggleVoice = () => {
+    if (isListening) {
+      recognitionRef.current?.stop()
+      setIsListening(false)
+      return
+    }
+
+    const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition
+    const recognition = new SpeechRecognitionAPI()
+    recognition.lang = 'fr-FR'
+    recognition.continuous = true
+    recognition.interimResults = false
+
+    recognition.onstart = () => setIsListening(true)
+    recognition.onend = () => setIsListening(false)
+    recognition.onerror = () => setIsListening(false)
+    recognition.onresult = (event: ISpeechRecognitionEvent) => {
+      const transcript = Array.from(event.results)
+        .slice(event.resultIndex)
+        .map((result) => result[0].transcript)
+        .join('')
+      setFormData((prev) => ({
+        ...prev,
+        message: prev.message ? prev.message + ' ' + transcript : transcript,
+      }))
+    }
+
+    recognitionRef.current = recognition
+    recognition.start()
+  }
 
   const contactMethods = [
     {
@@ -268,9 +352,48 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-section font-medium text-dark-text mb-2">
-                      Message
-                    </label>
+                    <div className="flex items-center justify-between mb-2">
+                      <label className="block text-sm font-section font-medium text-dark-text">
+                        Message
+                      </label>
+                      {isSpeechSupported && (
+                        <motion.button
+                          type="button"
+                          onClick={toggleVoice}
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          title={isListening ? 'Arrêter la dictée vocale' : 'Dicter un message vocal'}
+                          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-section font-medium transition-all ${
+                            isListening
+                              ? 'bg-red-500/20 border border-red-500/50 text-red-400 animate-pulse'
+                              : 'card-glass border border-accent-cyan/20 text-accent-cyan hover:border-accent-cyan/60'
+                          }`}
+                        >
+                          {isListening ? (
+                            <>
+                              <MicOff className="w-3.5 h-3.5" />
+                              <span>Arrêter</span>
+                            </>
+                          ) : (
+                            <>
+                              <Mic className="w-3.5 h-3.5" />
+                              <span>Vocal</span>
+                            </>
+                          )}
+                        </motion.button>
+                      )}
+                    </div>
+                    {isListening && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="flex items-center gap-2 mb-2 px-3 py-2 bg-red-500/10 border border-red-500/30 rounded-lg"
+                      >
+                        <span className="w-2 h-2 rounded-full bg-red-400 animate-ping" />
+                        <span className="text-xs text-red-400 font-body">Écoute en cours… parlez maintenant</span>
+                      </motion.div>
+                    )}
                     <motion.textarea
                       whileFocus={{ scale: 1.02 }}
                       name="message"
@@ -278,8 +401,12 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 card-glass rounded-lg border border-accent-cyan/20 text-dark-text placeholder-dark-muted font-body focus:border-accent-cyan focus:outline-none transition-colors resize-none"
-                      placeholder="Décrivez votre projet ou votre question..."
+                      className={`w-full px-4 py-3 card-glass rounded-lg border text-dark-text placeholder-dark-muted font-body focus:outline-none transition-colors resize-none ${
+                        isListening
+                          ? 'border-red-500/40 focus:border-red-400'
+                          : 'border-accent-cyan/20 focus:border-accent-cyan'
+                      }`}
+                      placeholder="Décrivez votre projet ou votre question… ou utilisez le bouton Vocal 🎙️"
                     />
                   </div>
 
