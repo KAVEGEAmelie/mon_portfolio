@@ -12,7 +12,7 @@ interface ISpeechRecognition extends EventTarget {
   interimResults: boolean
   onstart: (() => void) | null
   onend: (() => void) | null
-  onerror: (() => void) | null
+  onerror: ((event: Event) => void) | null
   onresult: ((event: ISpeechRecognitionEvent) => void) | null
   start(): void
   stop(): void
@@ -38,6 +38,7 @@ interface ISpeechRecognitionResultList {
   readonly length: number
   item(index: number): ISpeechRecognitionResult
   [index: number]: ISpeechRecognitionResult
+  [Symbol.iterator](): Iterator<ISpeechRecognitionResult>
 }
 
 declare global {
@@ -84,7 +85,8 @@ export default function Contact() {
     recognition.onend = () => setIsListening(false)
     recognition.onerror = () => setIsListening(false)
     recognition.onresult = (event: ISpeechRecognitionEvent) => {
-      const transcript = Array.from({ length: event.results.length - event.resultIndex }, (_, i) => event.results[event.resultIndex + i])
+      const transcript = Array.from(event.results)
+        .slice(event.resultIndex)
         .map((result) => result[0].transcript)
         .join('')
       setFormData((prev) => ({
