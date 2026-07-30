@@ -1,7 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ExternalLink, Github, Calendar, Code2, Smartphone, Globe, Database, Zap } from 'lucide-react'
+import { ExternalLink, Calendar, Code2, Smartphone, Globe, Database, Zap } from 'lucide-react'
+import { Github } from '@/components/ui/BrandIcons'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -132,7 +133,7 @@ export default function Projects() {
       {/* Hero Section */}
       <section className="section-padding relative overflow-hidden">
         {/* Background Effects */}
-        <div className="absolute inset-0 bg-gradient-to-br from-dark-bg via-dark-card to-dark-surface opacity-50" />
+        <div className="absolute inset-0 bg-linear-to-br from-dark-bg via-dark-card to-dark-surface opacity-50" />
         <div className="absolute top-20 right-20 w-96 h-96 rounded-full blur-3xl bg-accent-cyan/10" />
         <div className="absolute bottom-20 left-20 w-96 h-96 rounded-full blur-3xl bg-primary-400/10" />
 
@@ -194,7 +195,7 @@ export default function Projects() {
                 onClick={() => setSelectedCategory(category.name)}
                 className={`flex items-center gap-2 px-6 py-3 rounded-lg font-section font-medium transition-all duration-300 ${
                   selectedCategory === category.name
-                    ? 'bg-gradient-to-r from-accent-cyan to-primary-400 text-black shadow-lg shadow-accent-cyan/30'
+                    ? 'bg-linear-to-r from-accent-cyan to-primary-400 text-black shadow-lg shadow-accent-cyan/30'
                     : 'card-glass text-dark-text hover:border-accent-cyan/50 hover:text-accent-cyan'
                 }`}
               >
@@ -230,7 +231,7 @@ export default function Projects() {
                 {/* Header de projet */}
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-4">
-                    <div className={`p-3 bg-gradient-to-br ${project.gradient} rounded-lg group-hover:shadow-lg group-hover:shadow-accent-cyan/20`}>
+                    <div className={`p-3 bg-linear-to-br ${project.gradient} rounded-lg group-hover:shadow-lg group-hover:shadow-accent-cyan/20`}>
                       <span className="text-2xl">{project.icon}</span>
                     </div>
                     <div className="flex gap-2">
@@ -307,7 +308,7 @@ export default function Projects() {
                     <ul className="space-y-1">
                       {project.features.map((feature, i) => (
                         <li key={i} className="text-xs text-dark-muted flex items-start gap-2 font-body">
-                          <span className="w-1 h-1 bg-accent-cyan rounded-full mt-2 flex-shrink-0" />
+                          <span className="w-1 h-1 bg-accent-cyan rounded-full mt-2 shrink-0" />
                           {feature}
                         </li>
                       ))}
@@ -336,7 +337,7 @@ export default function Projects() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="inline-block p-4 bg-gradient-to-br from-accent-cyan to-primary-400 rounded-full mb-6"
+                className="inline-block p-4 bg-linear-to-br from-accent-cyan to-primary-400 rounded-full mb-6"
               >
                 <Code2 className="w-8 h-8 text-black" />
               </motion.div>

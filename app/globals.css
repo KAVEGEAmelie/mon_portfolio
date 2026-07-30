@@ -1,6 +1,318 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --color-primary-50: #ecfeff;
+  --color-primary-100: #cffafe;
+  --color-primary-200: #a5f3fc;
+  --color-primary-300: #67e8f9;
+  --color-primary-400: #22d3ee;
+  --color-primary-500: #06b6d4;
+  --color-primary-600: #0891b2;
+  --color-primary-700: #0e7490;
+  --color-primary-800: #155e75;
+  --color-primary-900: #164e63;
+  --color-primary-950: #083344;
+
+  --color-accent-cyan: #00d4ff;
+  --color-accent-blue: #0066ff;
+  --color-accent-purple: #8b5cf6;
+  --color-accent-green: #10b981;
+  --color-accent-yellow: #fbbf24;
+
+  --color-dark-bg: #0a0a0a;
+  --color-dark-card: #111111;
+  --color-dark-surface: #1a1a1a;
+  --color-dark-border: #2a2a2a;
+  --color-dark-text: #ffffff;
+  --color-dark-muted: #888888;
+
+  --font-title: var(--font-space), system-ui, sans-serif;
+  --font-section: var(--font-sora), system-ui, sans-serif;
+  --font-body: var(--font-outfit), system-ui, sans-serif;
+  --font-signature: var(--font-signature), cursive;
+  --font-sans: var(--font-outfit), system-ui, sans-serif;
+  --font-display: var(--font-space), system-ui, sans-serif;
+
+  --animate-fade-in: fadeIn 0.6s ease-in-out;
+  --animate-slide-up: slideUp 0.6s ease-out;
+  --animate-slide-down: slideDown 0.6s ease-out;
+  --animate-float: float 3s ease-in-out infinite;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes slideUp {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slideDown {
+    0% {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility container-custom {
+  /* Container personnalisé */
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+@utility section-padding {
+  /* Padding de section */
+  @apply py-16 lg:py-24;
+}
+
+@utility gradient-bg {
+  /* Background gradients */
+  @apply bg-linear-to-br from-dark-bg via-dark-card to-dark-surface;
+}
+
+@utility gradient-text {
+  @apply bg-linear-to-r from-accent-cyan via-primary-400 to-accent-blue bg-clip-text text-transparent;
+}
+
+@utility gradient-border {
+  @apply bg-linear-to-r from-accent-cyan via-primary-400 to-accent-blue p-px rounded-lg;
+}
+
+@utility card-dark {
+  /* Cards */
+  @apply bg-dark-card/80 backdrop-blur-lg border border-dark-border rounded-xl shadow-2xl;
+}
+
+@utility card-glass {
+  @apply bg-dark-card/60 backdrop-blur-xl border border-accent-cyan/20 rounded-xl shadow-2xl;
+}
+
+@utility neon-text {
+  /* Effets néon */
+  text-shadow:
+    0 0 5px var(--color-accent-cyan),
+    0 0 10px var(--color-accent-cyan),
+    0 0 15px var(--color-accent-cyan);
+}
+
+@utility neon-text-soft {
+  text-shadow:
+    0 0 3px theme('colors.accent.cyan/0.8'),
+    0 0 6px theme('colors.accent.cyan/0.6');
+}
+
+@utility signature-text {
+  /* Effet signature manuscrite */
+  font-family: var(--font-signature);
+  transform: rotate(-3deg);
+  text-shadow:
+    0 0 5px var(--color-accent-cyan),
+    0 0 10px theme('colors.accent.cyan/0.6'),
+    0 0 15px theme('colors.accent.cyan/0.4');
+  filter: drop-shadow(0 2px 8px rgba(0, 229, 255, 0.3));
+  position: relative;
+  display: inline-block;
+
+  &:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-accent-cyan),
+      transparent
+    );
+    opacity: 0.6;
+    animation: signature-glow 1s ease-in-out;
+  }
+}
+
+@utility tech-name {
+  /* Style tech pour nom de famille */
+  font-family: var(--font-space);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: linear-gradient(
+    90deg,
+    var(--color-white),
+    var(--color-accent-cyan),
+    var(--color-white),
+    var(--color-accent-cyan)
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+
+  &:hover {
+    animation: tech-shimmer 1.5s ease-in-out;
+  }
+
+  &:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -2px;
+    right: -2px;
+    bottom: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      theme('colors.accent.cyan/0.1'),
+      transparent
+    );
+    animation: tech-scan 2s linear;
+    pointer-events: none;
+  }
+}
+
+@utility profile-tech-filter {
+  /* Styles pour composant InteractiveProfile */
+  filter: saturate(2) contrast(1.8) brightness(0.8) hue-rotate(270deg)
+    invert(0.1);
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  opacity: 0.8;
+}
+
+@utility profile-matrix-overlay {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 229, 255, 0.1) 2px,
+      rgba(0, 229, 255, 0.1) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 0, 0.1) 2px,
+      rgba(0, 255, 0, 0.1) 4px
+    );
+}
+
+@utility profile-main-filter {
+  filter: saturate(1.2) contrast(1.3) brightness(1.1) hue-rotate(10deg);
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+@utility profile-main-filter-default {
+  filter: saturate(0.6) contrast(1.05);
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+@utility profile-hexagon-clip {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+@utility neon-border {
+  box-shadow:
+    0 0 5px var(--color-accent-cyan),
+    0 0 10px var(--color-accent-cyan),
+    inset 0 0 5px var(--color-accent-cyan);
+  border: 1px solid var(--color-accent-cyan);
+}
+
+@utility hover-glow {
+  /* Hover effects */
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 0 15px theme('colors.accent.cyan/0.2');
+    transform: translateY(-1px);
+  }
+}
+
+@utility btn-primary {
+  /* Buttons */
+  @apply px-6 py-3 bg-linear-to-r from-accent-cyan to-primary-400 text-black font-section font-medium rounded-xl hover-glow transition-all duration-300;
+}
+
+@utility btn-outline {
+  @apply px-6 py-3 card-glass border-2 border-accent-cyan/70 text-accent-cyan font-section font-medium rounded-xl 
+           hover:border-accent-cyan hover:bg-accent-cyan/10 hover:text-white hover:shadow-lg 
+           hover:shadow-accent-cyan/30 transition-all duration-300;
+}
+
+@utility interactive-photo-area {
+  /* Curseur personnalisé pour la photo interactive */
+  cursor: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: var(--color-accent-cyan);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: transform 0.1s ease-out;
+  }
+}
+
+@utility digital-trail {
+  /* Effet de traînée numérique */
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--color-accent-cyan);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.6;
+  animation: fadeOut 0.8s ease-out forwards;
+}
 
 @layer base {
   * {
@@ -30,110 +342,9 @@
 }
 
 @layer components {
-  /* Container personnalisé */
-  .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-  
-  /* Padding de section */
-  .section-padding {
-    @apply py-16 lg:py-24;
-  }
-  
-  /* Background gradients */
-  .gradient-bg {
-    @apply bg-gradient-to-br from-dark-bg via-dark-card to-dark-surface;
-  }
-  
-  .gradient-text {
-    @apply bg-gradient-to-r from-accent-cyan via-primary-400 to-accent-blue bg-clip-text text-transparent;
-  }
-  
-  .gradient-border {
-    @apply bg-gradient-to-r from-accent-cyan via-primary-400 to-accent-blue p-[1px] rounded-lg;
-  }
-  
-  /* Cards */
-  .card-dark {
-    @apply bg-dark-card/80 backdrop-blur-lg border border-dark-border rounded-xl shadow-2xl;
-  }
-  
-  .card-glass {
-    @apply bg-dark-card/60 backdrop-blur-xl border border-accent-cyan/20 rounded-xl shadow-2xl;
-  }
-  
-  /* Effets néon */
-  .neon-text {
-    text-shadow: 0 0 5px theme('colors.accent.cyan'), 0 0 10px theme('colors.accent.cyan'), 0 0 15px theme('colors.accent.cyan');
-  }
-  
-  .neon-text-soft {
-    text-shadow: 0 0 3px theme('colors.accent.cyan/0.8'), 0 0 6px theme('colors.accent.cyan/0.6');
-  }
-
-  /* Effet signature manuscrite */
-  .signature-text {
-    font-family: var(--font-signature);
-    transform: rotate(-3deg);
-    text-shadow: 
-      0 0 5px theme('colors.accent.cyan'),
-      0 0 10px theme('colors.accent.cyan/0.6'),
-      0 0 15px theme('colors.accent.cyan/0.4');
-    filter: drop-shadow(0 2px 8px rgba(0, 229, 255, 0.3));
-    position: relative;
-    display: inline-block;
-  }
-
-  .signature-text:hover::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, theme('colors.accent.cyan'), transparent);
-    opacity: 0.6;
-    animation: signature-glow 1s ease-in-out;
-  }
-
   @keyframes signature-glow {
     0% { opacity: 0.3; transform: scaleX(0.7); }
     100% { opacity: 0.8; transform: scaleX(1.1); }
-  }
-
-  /* Style tech pour nom de famille */
-  .tech-name {
-    font-family: var(--font-space);
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    background: linear-gradient(90deg, 
-      theme('colors.white'), 
-      theme('colors.accent.cyan'), 
-      theme('colors.white'), 
-      theme('colors.accent.cyan')
-    );
-    background-size: 200% 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    position: relative;
-  }
-  
-  .tech-name:hover {
-    animation: tech-shimmer 1.5s ease-in-out;
-  }
-
-  .tech-name:hover::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -2px;
-    right: -2px;
-    bottom: 0;
-    background: linear-gradient(90deg, transparent, theme('colors.accent.cyan/0.1'), transparent);
-    animation: tech-scan 2s linear;
-    pointer-events: none;
   }
 
   @keyframes tech-shimmer {
@@ -145,107 +356,30 @@
     0%, 100% { transform: translateX(-100%); opacity: 0; }
     50% { transform: translateX(100%); opacity: 1; }
   }
-
-  /* Styles pour composant InteractiveProfile */
-  .profile-tech-filter {
-    filter: saturate(2) contrast(1.8) brightness(0.8) hue-rotate(270deg) invert(0.1);
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-    opacity: 0.8;
-  }
-
-  .profile-matrix-overlay {
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-    background: 
-      repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0, 229, 255, 0.1) 2px,
-        rgba(0, 229, 255, 0.1) 4px
-      ),
-      repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 2px,
-        rgba(0, 255, 0, 0.1) 2px,
-        rgba(0, 255, 0, 0.1) 4px
-      );
-  }
-
-  .profile-main-filter {
-    filter: saturate(1.2) contrast(1.3) brightness(1.1) hue-rotate(10deg);
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-  }
-
-  .profile-main-filter-default {
-    filter: saturate(0.6) contrast(1.05);
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-  }
-
-  .profile-hexagon-clip {
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-  }
-  
-  .neon-border {
-    box-shadow: 0 0 5px theme('colors.accent.cyan'), 0 0 10px theme('colors.accent.cyan'), inset 0 0 5px theme('colors.accent.cyan');
-    border: 1px solid theme('colors.accent.cyan');
-  }
-  
-  /* Hover effects */
-  .hover-glow {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  .hover-glow:hover {
-    box-shadow: 0 0 15px theme('colors.accent.cyan/0.2');
-    transform: translateY(-1px);
-  }
-  
-  /* Buttons */
-  .btn-primary {
-    @apply px-6 py-3 bg-gradient-to-r from-accent-cyan to-primary-400 text-black font-section font-medium rounded-xl hover-glow transition-all duration-300;
-  }
-  
-  .btn-outline {
-    @apply px-6 py-3 card-glass border-2 border-accent-cyan/70 text-accent-cyan font-section font-medium rounded-xl 
-           hover:border-accent-cyan hover:bg-accent-cyan/10 hover:text-white hover:shadow-lg 
-           hover:shadow-accent-cyan/30 transition-all duration-300;
-  }
-  
-  /* Curseur personnalisé pour la photo interactive */
-  .interactive-photo-area {
-    cursor: none;
-  }
-  
-  .interactive-photo-area::after {
-    content: '';
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background: theme('colors.accent.cyan');
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    mix-blend-mode: difference;
-    transition: transform 0.1s ease-out;
-  }
-  
-  /* Effet de traînée numérique */
-  .digital-trail {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: theme('colors.accent.cyan');
-    border-radius: 50%;
-    pointer-events: none;
-    opacity: 0.6;
-    animation: fadeOut 0.8s ease-out forwards;
-  }
   
   @keyframes fadeOut {
     to {
       opacity: 0;
       transform: scale(0);
     }
+  }
+}
+
+/* Accessibilité : focus visible au clavier */
+:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Accessibilité : respect de prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

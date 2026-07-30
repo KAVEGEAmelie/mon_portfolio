@@ -110,10 +110,11 @@ export default function InteractiveProfile() {
             }}
           >
             <Image
-              src="/images/profile.jpg"
+              src="/images/profile.webp"
               alt="Amélie KAVEGE - Développeuse Web & Mobile"
               fill
               priority
+              sizes="(max-width: 768px) 80vw, 400px"
               className={`object-cover ${
                 isHovered 
                   ? 'profile-main-filter'
@@ -165,7 +166,7 @@ export default function InteractiveProfile() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.3 }}
               transition={{ duration: 0.2 }}
-              className="absolute inset-0 z-25 pointer-events-none profile-hexagon-clip bg-gradient-to-br from-accent-cyan/20 to-transparent"
+              className="absolute inset-0 z-25 pointer-events-none profile-hexagon-clip bg-linear-to-br from-accent-cyan/20 to-transparent"
             />
           )}
         </motion.div>

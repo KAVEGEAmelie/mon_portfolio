@@ -34,16 +34,50 @@ const dancingScript = Dancing_Script({
   display: 'swap',
 })
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://amelie-portfolio.example.com'
+
 export const metadata: Metadata = {
-  title: 'KAVEGE Akou Amélie - Développeuse Web & Mobile',
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: 'KAVEGE Akou Amélie - Développeuse Web & Mobile',
+    template: '%s | KAVEGE Akou Amélie',
+  },
   description: 'Portfolio professionnel de KAVEGE Akou Amélie, développeuse web et mobile spécialisée en React, Next.js, Flutter et Node.js',
   keywords: ['développeuse web', 'développeuse mobile', 'React', 'Next.js', 'Flutter', 'portfolio'],
   authors: [{ name: 'KAVEGE Akou Amélie' }],
+  alternates: { canonical: '/' },
   openGraph: {
     title: 'KAVEGE Akou Amélie - Développeuse Web & Mobile',
     description: 'Portfolio professionnel - Développement Web & Mobile',
     type: 'website',
+    url: siteUrl,
+    siteName: 'Portfolio de KAVEGE Akou Amélie',
+    locale: 'fr_FR',
+    images: [{ url: '/images/profile.webp', width: 1200, height: 1200, alt: 'KAVEGE Akou Amélie' }],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'KAVEGE Akou Amélie - Développeuse Web & Mobile',
+    description: 'Portfolio professionnel - Développement Web & Mobile',
+    images: ['/images/profile.webp'],
+  },
+  robots: { index: true, follow: true },
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'KAVEGE Akou Amélie',
+  jobTitle: 'Développeuse Web & Mobile',
+  url: siteUrl,
+  email: 'mailto:kavegeamelie@gmail.com',
+  address: { '@type': 'PostalAddress', addressLocality: 'Lomé', addressCountry: 'TG' },
+  sameAs: [
+    'https://github.com/KAVEGEAmelie',
+    'https://www.linkedin.com/in/amkvg/',
+    'https://www.instagram.com/amelie_kaa/',
+  ],
+  knowsAbout: ['React', 'Next.js', 'Flutter', 'Node.js', 'TypeScript'],
 }
 
 export default function RootLayout({
@@ -59,10 +93,20 @@ export default function RootLayout({
       ${dancingScript.variable}
     `}>
       <body className="antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-black focus:text-white focus:rounded-lg"
+        >
+          Aller au contenu principal
+        </a>
         <ThemeProvider>
           <div className="min-h-screen transition-colors duration-300">
             <Navbar />
-            <main className="flex-1">
+            <main id="main-content" className="flex-1">
               {children}
             </main>
             <Footer />

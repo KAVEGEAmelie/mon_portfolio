@@ -39,7 +39,7 @@ export default function About() {
       {/* Hero Section */}
       <section className="py-8 md:py-12 relative overflow-hidden">
         {/* Background Effects */}
-        <div className="absolute inset-0 bg-gradient-to-br from-dark-bg via-dark-card to-dark-surface opacity-50" />
+        <div className="absolute inset-0 bg-linear-to-br from-dark-bg via-dark-card to-dark-surface opacity-50" />
         <div className="absolute top-10 right-10 w-64 h-64 rounded-full blur-3xl bg-accent-cyan/10" />
         <div className="absolute bottom-10 left-10 w-64 h-64 rounded-full blur-3xl bg-primary-400/10" />
 
@@ -237,7 +237,7 @@ export default function About() {
                   <motion.div
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.5 }}
-                    className="inline-block p-3 bg-gradient-to-br from-accent-cyan to-primary-400 rounded-full mb-3"
+                    className="inline-block p-3 bg-linear-to-br from-accent-cyan to-primary-400 rounded-full mb-3"
                   >
                     <Calendar className="w-6 h-6 text-black" />
                   </motion.div>
@@ -257,7 +257,7 @@ export default function About() {
                   <motion.div
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.5 }}
-                    className="inline-block p-3 bg-gradient-to-br from-accent-blue to-accent-cyan rounded-full mb-3"
+                    className="inline-block p-3 bg-linear-to-br from-accent-blue to-accent-cyan rounded-full mb-3"
                   >
                     <Megaphone className="w-6 h-6 text-black" />
                   </motion.div>
@@ -321,7 +321,7 @@ export default function About() {
                 <motion.div
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.5 }}
-                  className="inline-block p-3 bg-gradient-to-br from-accent-cyan to-primary-400 rounded-full mb-4 group-hover:shadow-lg group-hover:shadow-accent-cyan/30"
+                  className="inline-block p-3 bg-linear-to-br from-accent-cyan to-primary-400 rounded-full mb-4 group-hover:shadow-lg group-hover:shadow-accent-cyan/30"
                 >
                   <value.icon className="w-6 h-6 text-black" />
                 </motion.div>
@@ -353,7 +353,7 @@ export default function About() {
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="h-px bg-gradient-to-r from-transparent via-accent-cyan to-transparent mb-8"
+              className="h-px bg-linear-to-r from-transparent via-accent-cyan to-transparent mb-8"
             />
 
             {/* CV-AV - Signature personnelle */}
@@ -367,7 +367,7 @@ export default function About() {
               {/* Badge CV-AV */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-accent-cyan/20 to-primary-400/20 backdrop-blur-sm rounded-full text-sm font-section text-accent-cyan mb-6 border border-accent-cyan/30"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-linear-to-r from-accent-cyan/20 to-primary-400/20 backdrop-blur-xs rounded-full text-sm font-section text-accent-cyan mb-6 border border-accent-cyan/30"
               >
                 <Heart className="w-4 h-4" />
                 <span className="font-bold">CV-AV</span>
@@ -453,7 +453,7 @@ export default function About() {
                       repeat: Infinity,
                       ease: "easeInOut"
                     }}
-                    className="w-8 h-8 rounded-full bg-gradient-to-r from-accent-cyan via-primary-400 to-accent-blue opacity-60"
+                    className="w-8 h-8 rounded-full bg-linear-to-r from-accent-cyan via-primary-400 to-accent-blue opacity-60"
                   />
                 </div>
               </motion.div>

@@ -178,7 +178,7 @@ export default function Skills() {
       {/* Hero Section */}
       <section className="py-8 md:py-12 relative overflow-hidden">
         {/* Background Effects */}
-        <div className="absolute inset-0 bg-gradient-to-br from-dark-bg via-dark-card to-dark-surface opacity-50" />
+        <div className="absolute inset-0 bg-linear-to-br from-dark-bg via-dark-card to-dark-surface opacity-50" />
         <div className="absolute top-10 right-10 w-64 h-64 rounded-full blur-3xl bg-accent-cyan/10" />
         <div className="absolute bottom-10 left-10 w-64 h-64 rounded-full blur-3xl bg-primary-400/10" />
 
@@ -252,7 +252,7 @@ export default function Skills() {
                       boxShadow: "0 0 30px rgba(0, 229, 255, 0.5)"
                     }}
                     transition={{ duration: 0.5 }}
-                    className={`p-3 bg-gradient-to-br ${category.color} rounded-lg group-hover:shadow-lg group-hover:shadow-accent-cyan/20 relative overflow-hidden`}
+                    className={`p-3 bg-linear-to-br ${category.color} rounded-lg group-hover:shadow-lg group-hover:shadow-accent-cyan/20 relative overflow-hidden`}
                   >
                     <category.icon className="w-6 h-6 text-black relative z-10" />
                     <motion.div
@@ -313,9 +313,9 @@ export default function Skills() {
                             delay: (categoryIndex * 0.1) + (skillIndex * 0.1),
                             ease: "easeOut"
                           }}
-                          className={`h-full bg-gradient-to-r ${category.color} rounded-full relative overflow-hidden`}
+                          className={`h-full bg-linear-to-r ${category.color} rounded-full relative overflow-hidden`}
                         >
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse" />
+                          <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent animate-pulse" />
                         </motion.div>
                       </div>
                     </motion.div>
@@ -345,7 +345,7 @@ export default function Skills() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-accent-cyan/20 to-primary-400/20 backdrop-blur-sm rounded-full text-sm font-section text-accent-cyan mb-4 border border-accent-cyan/30"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-linear-to-r from-accent-cyan/20 to-primary-400/20 backdrop-blur-xs rounded-full text-sm font-section text-accent-cyan mb-4 border border-accent-cyan/30"
               >
                 <Terminal className="w-4 h-4" />
                 <span className="font-mono">~/continuous_learning$</span>
@@ -370,7 +370,7 @@ export default function Skills() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
-                    className="flex-shrink-0 flex items-center gap-3 bg-dark-surface/50 px-4 py-2 rounded-lg border border-accent-cyan/10 hover:border-accent-cyan/30 transition-all"
+                    className="shrink-0 flex items-center gap-3 bg-dark-surface/50 px-4 py-2 rounded-lg border border-accent-cyan/10 hover:border-accent-cyan/30 transition-all"
                   >
                     <span className="text-2xl animate-pulse">{tech.icon}</span>
                     <span className="text-sm font-body text-dark-text whitespace-nowrap">
@@ -383,7 +383,7 @@ export default function Skills() {
                   <motion.div
                     key={`second-${tech.name}`}
                     aria-hidden="true"
-                    className="flex-shrink-0 flex items-center gap-3 bg-dark-surface/50 px-4 py-2 rounded-lg border border-accent-cyan/10 hover:border-accent-cyan/30 transition-all"
+                    className="shrink-0 flex items-center gap-3 bg-dark-surface/50 px-4 py-2 rounded-lg border border-accent-cyan/10 hover:border-accent-cyan/30 transition-all"
                   >
                     <span className="text-2xl animate-pulse">{tech.icon}</span>
                     <span className="text-sm font-body text-dark-text whitespace-nowrap">
@@ -394,8 +394,8 @@ export default function Skills() {
               </div>
               
               {/* Gradient fade sur les côtés */}
-              <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-dark-card/30 to-transparent pointer-events-none" />
-              <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-dark-card/30 to-transparent pointer-events-none" />
+              <div className="absolute inset-y-0 left-0 w-16 bg-linear-to-r from-dark-card/30 to-transparent pointer-events-none" />
+              <div className="absolute inset-y-0 right-0 w-16 bg-linear-to-l from-dark-card/30 to-transparent pointer-events-none" />
             </div>
 
             {/* Stats de veille */}

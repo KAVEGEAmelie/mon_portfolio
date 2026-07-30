@@ -87,14 +87,16 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
               className="p-2 rounded-lg text-accent-cyan hover:bg-dark-card transition-colors"
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
             </motion.button>
           </div>
         </div>
@@ -104,6 +106,7 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -119,7 +122,7 @@ export default function Navbar() {
                     className={`
                       py-3 px-4 rounded-lg text-center font-section transition-colors
                       ${pathname === link.path
-                        ? 'bg-gradient-to-r from-accent-cyan to-primary-400 text-black font-medium'
+                        ? 'bg-linear-to-r from-accent-cyan to-primary-400 text-black font-medium'
                         : 'text-dark-text hover:bg-dark-surface hover:text-accent-cyan'
                       }
                     `}

@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Instagram, MessageCircle, Heart } from 'lucide-react';
+import { Mail, MessageCircle, Heart } from 'lucide-react';
+import { Github, Linkedin, Instagram } from '@/components/ui/BrandIcons';
 
 const socialLinks = [
   { icon: Github, href: 'https://github.com/KAVEGEAmelie', label: 'GitHub' },
@@ -16,7 +17,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden bg-gradient-to-br from-dark-bg via-dark-card to-dark-surface">
+    <footer className="relative overflow-hidden bg-linear-to-br from-dark-bg via-dark-card to-dark-surface">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl bg-accent-cyan" />

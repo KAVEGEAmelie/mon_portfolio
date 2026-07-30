@@ -105,7 +105,7 @@ export default function Journey() {
       {/* Hero Section */}
       <section className="py-8 md:py-12 relative overflow-hidden">
         {/* Background Effects */}
-        <div className="absolute inset-0 bg-gradient-to-br from-dark-bg via-dark-card to-dark-surface opacity-50" />
+        <div className="absolute inset-0 bg-linear-to-br from-dark-bg via-dark-card to-dark-surface opacity-50" />
         <div className="absolute top-10 right-10 w-64 h-64 rounded-full blur-3xl bg-accent-cyan/10" />
         <div className="absolute bottom-10 left-10 w-64 h-64 rounded-full blur-3xl bg-primary-400/10" />
 
@@ -152,7 +152,7 @@ export default function Journey() {
         <div className="container-custom">
           <div className="relative">
             {/* Ligne de timeline */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent-cyan via-primary-400 to-accent-cyan rounded-full" />
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-linear-to-b from-accent-cyan via-primary-400 to-accent-cyan rounded-full" />
 
             <div className="space-y-8">
               {timelineData.map((item, index) => (
@@ -170,7 +170,7 @@ export default function Journey() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: (index * 0.1) + 0.2 }}
-                    className={`absolute -left-2 top-6 p-4 bg-gradient-to-br ${item.gradient} rounded-full shadow-lg`}
+                    className={`absolute -left-2 top-6 p-4 bg-linear-to-br ${item.gradient} rounded-full shadow-lg`}
                     style={{ boxShadow: `0 0 30px ${item.type === 'education' ? '#00E5FF' : item.type === 'project' ? '#8b5cf6' : '#10b981'}40` }}
                   >
                     <item.icon className="w-6 h-6 text-black" />
@@ -226,7 +226,7 @@ export default function Journey() {
                           transition={{ duration: 0.4, delay: (index * 0.1) + (i * 0.05) }}
                           className="flex items-center gap-2 text-sm"
                         >
-                          <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${item.gradient} flex-shrink-0`} />
+                          <div className={`w-2 h-2 rounded-full bg-linear-to-r ${item.gradient} shrink-0`} />
                           <span className="text-dark-text font-body">{highlight}</span>
                         </motion.div>
                       ))}
@@ -272,7 +272,7 @@ export default function Journey() {
                   <motion.div
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.5 }}
-                    className="p-3 bg-gradient-to-br from-accent-cyan to-primary-400 rounded-lg"
+                    className="p-3 bg-linear-to-br from-accent-cyan to-primary-400 rounded-lg"
                   >
                     <goal.icon className="w-6 h-6 text-black" />
                   </motion.div>
@@ -291,7 +291,7 @@ export default function Journey() {
                       transition={{ duration: 0.4, delay: (index * 0.2) + (i * 0.1) }}
                       className="flex items-start gap-3 p-3 bg-dark-surface/50 rounded-lg"
                     >
-                      <div className="w-2 h-2 rounded-full bg-accent-cyan mt-2 flex-shrink-0" />
+                      <div className="w-2 h-2 rounded-full bg-accent-cyan mt-2 shrink-0" />
                       <span className="text-dark-text font-body">{item}</span>
                     </motion.div>
                   ))}
@@ -318,7 +318,7 @@ export default function Journey() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="inline-block p-4 bg-gradient-to-br from-accent-cyan to-primary-400 rounded-full mb-6"
+                className="inline-block p-4 bg-linear-to-br from-accent-cyan to-primary-400 rounded-full mb-6"
               >
                 <Rocket className="w-8 h-8 text-black" />
               </motion.div>

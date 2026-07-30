@@ -2,7 +2,8 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, MapPin, Phone, Send, Github, Linkedin, CheckCircle, MessageCircle, Calendar } from 'lucide-react'
+import { Mail, MapPin, Phone, Send, CheckCircle, MessageCircle, Calendar } from 'lucide-react'
+import { Github, Linkedin } from '@/components/ui/BrandIcons'
 import emailjs from '@emailjs/browser'
 
 export default function Contact() {
@@ -14,6 +15,7 @@ export default function Contact() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   const contactMethods = [
     {
@@ -43,20 +45,33 @@ export default function Contact() {
   ]
 
   const socialLinks = [
-    { icon: Github, label: 'GitHub', url: 'https://github.com/amelie', color: 'hover:text-white' },
-    { icon: Linkedin, label: 'LinkedIn', url: 'https://linkedin.com/in/amelie', color: 'hover:text-blue-400' },
-    { icon: MessageCircle, label: 'Discord', url: '#', color: 'hover:text-purple-400' },
+    { icon: Github, label: 'GitHub', url: 'https://github.com/KAVEGEAmelie', color: 'hover:text-white' },
+    { icon: Linkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/in/amkvg/', color: 'hover:text-blue-400' },
+    { icon: MessageCircle, label: 'WhatsApp', url: 'https://wa.me/+22892236069', color: 'hover:text-green-400' },
   ]
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setError(null)
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+
+    // Fallback si EmailJS n'est pas encore configuré
+    if (!serviceId || !templateId || !publicKey) {
+      setError(
+        "Le formulaire n'est pas encore activé. \u00c9crivez-moi directement par email, je r\u00e9ponds sous 24h !"
+      )
+      return
+    }
+
     setIsSubmitting(true)
 
     try {
-      // Configuration EmailJS avec variables d'environnement
-      const result = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!, 
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+      await emailjs.send(
+        serviceId,
+        templateId,
         {
           from_name: formData.name,
           from_email: formData.email,
@@ -64,22 +79,22 @@ export default function Contact() {
           message: formData.message,
           to_email: 'kavegeamelie@gmail.com',
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        publicKey
       )
 
-      console.log('Email envoyé avec succès!', result.text)
       setIsSubmitting(false)
       setIsSubmitted(true)
       setFormData({ name: '', email: '', subject: '', message: '' })
-      
+
       // Reset après 5 secondes
       setTimeout(() => setIsSubmitted(false), 5000)
 
-    } catch (error) {
-      console.error('Erreur lors de l\'envoi:', error)
+    } catch (err) {
+      console.error('Erreur lors de l\'envoi:', err)
       setIsSubmitting(false)
-      // Vous pouvez ajouter une gestion d'erreur ici
-      alert('Erreur lors de l\'envoi. Veuillez réessayer ou me contacter directement à kavegeamelie@gmail.com')
+      setError(
+        "L'envoi a \u00e9chou\u00e9. R\u00e9essayez dans un instant ou \u00e9crivez-moi directement par email."
+      )
     }
   }
 
@@ -95,7 +110,7 @@ export default function Contact() {
       {/* Hero Section */}
       <section className="py-6 md:py-8 relative overflow-hidden">
         {/* Background Effects */}
-        <div className="absolute inset-0 bg-gradient-to-br from-dark-bg via-dark-card to-dark-surface opacity-50" />
+        <div className="absolute inset-0 bg-linear-to-br from-dark-bg via-dark-card to-dark-surface opacity-50" />
         <div className="absolute top-20 right-20 w-96 h-96 rounded-full blur-3xl bg-accent-cyan/10" />
         <div className="absolute bottom-20 left-20 w-96 h-96 rounded-full blur-3xl bg-primary-400/10" />
 
@@ -155,7 +170,7 @@ export default function Contact() {
                 <motion.div
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.5 }}
-                  className={`inline-block p-4 bg-gradient-to-br ${method.gradient} rounded-lg mb-4 group-hover:shadow-lg group-hover:shadow-accent-cyan/20`}
+                  className={`inline-block p-4 bg-linear-to-br ${method.gradient} rounded-lg mb-4 group-hover:shadow-lg group-hover:shadow-accent-cyan/20`}
                 >
                   <method.icon className="w-6 h-6 text-black" />
                 </motion.div>
@@ -204,7 +219,7 @@ export default function Contact() {
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.2 }}
-                    className="inline-block p-4 bg-gradient-to-br from-accent-green to-accent-cyan rounded-full mb-4"
+                    className="inline-block p-4 bg-linear-to-br from-accent-green to-accent-cyan rounded-full mb-4"
                   >
                     <CheckCircle className="w-8 h-8 text-black" />
                   </motion.div>
@@ -219,80 +234,105 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-section font-medium text-dark-text mb-2">
+                      <label htmlFor="contact-name" className="block text-sm font-section font-medium text-dark-text mb-2">
                         Nom complet
                       </label>
                       <motion.input
                         whileFocus={{ scale: 1.02 }}
                         type="text"
+                        id="contact-name"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 card-glass rounded-lg border border-accent-cyan/20 text-dark-text placeholder-dark-muted font-body focus:border-accent-cyan focus:outline-none transition-colors"
+                        autoComplete="name"
+                        className="w-full px-4 py-3 card-glass rounded-lg border border-accent-cyan/20 text-dark-text placeholder-dark-muted font-body focus:border-accent-cyan focus:outline-hidden transition-colors"
                         placeholder="Votre nom complet"
                       />
                     </div>
                     
                     <div>
-                      <label className="block text-sm font-section font-medium text-dark-text mb-2">
+                      <label htmlFor="contact-email" className="block text-sm font-section font-medium text-dark-text mb-2">
                         Email
                       </label>
                       <motion.input
                         whileFocus={{ scale: 1.02 }}
                         type="email"
+                        id="contact-email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 card-glass rounded-lg border border-accent-cyan/20 text-dark-text placeholder-dark-muted font-body focus:border-accent-cyan focus:outline-none transition-colors"
+                        autoComplete="email"
+                        className="w-full px-4 py-3 card-glass rounded-lg border border-accent-cyan/20 text-dark-text placeholder-dark-muted font-body focus:border-accent-cyan focus:outline-hidden transition-colors"
                         placeholder="votre.email@example.com"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-section font-medium text-dark-text mb-2">
+                    <label htmlFor="contact-subject" className="block text-sm font-section font-medium text-dark-text mb-2">
                       Sujet
                     </label>
                     <motion.input
                       whileFocus={{ scale: 1.02 }}
                       type="text"
+                      id="contact-subject"
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 card-glass rounded-lg border border-accent-cyan/20 text-dark-text placeholder-dark-muted font-body focus:border-accent-cyan focus:outline-none transition-colors"
+                      className="w-full px-4 py-3 card-glass rounded-lg border border-accent-cyan/20 text-dark-text placeholder-dark-muted font-body focus:border-accent-cyan focus:outline-hidden transition-colors"
                       placeholder="L'objet de votre message"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-section font-medium text-dark-text mb-2">
+                    <label htmlFor="contact-message" className="block text-sm font-section font-medium text-dark-text mb-2">
                       Message
                     </label>
                     <motion.textarea
                       whileFocus={{ scale: 1.02 }}
+                      id="contact-message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 card-glass rounded-lg border border-accent-cyan/20 text-dark-text placeholder-dark-muted font-body focus:border-accent-cyan focus:outline-none transition-colors resize-none"
+                      className="w-full px-4 py-3 card-glass rounded-lg border border-accent-cyan/20 text-dark-text placeholder-dark-muted font-body focus:border-accent-cyan focus:outline-hidden transition-colors resize-none"
                       placeholder="Décrivez votre projet ou votre question..."
                     />
                   </div>
 
+                  {error && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      role="alert"
+                      className="p-4 rounded-lg border border-amber-400/40 bg-amber-400/10 text-sm font-body text-amber-200"
+                    >
+                      <p>{error}</p>
+                      <a
+                        href={`mailto:kavegeamelie@gmail.com?subject=${encodeURIComponent(formData.subject || 'Contact portfolio')}&body=${encodeURIComponent(formData.message)}`}
+                        className="inline-flex items-center gap-2 mt-2 font-semibold text-accent-cyan hover:underline"
+                      >
+                        <Mail className="w-4 h-4" aria-hidden="true" />
+                        Envoyer par email à kavegeamelie@gmail.com
+                      </a>
+                    </motion.div>
+                  )}
+
                   <motion.button
                     type="submit"
                     disabled={isSubmitting}
+                    aria-busy={isSubmitting}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="w-full sm:w-auto btn-primary group disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <span>{isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}</span>
                     {!isSubmitting && (
-                      <Send className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      <Send className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                     )}
                   </motion.button>
                 </form>

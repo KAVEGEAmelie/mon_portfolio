@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { Github, Linkedin, Mail, Heart } from 'lucide-react'
+import { Mail, Heart } from 'lucide-react'
+import { Github, Linkedin } from '@/components/ui/BrandIcons'
 import { motion } from 'framer-motion'
 
 const socialLinks = [
@@ -34,7 +35,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-primary-900 to-primary-950 text-white">
+    <footer className="bg-linear-to-br from-primary-900 to-primary-950 text-white">
       <div className="container-custom py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Colonne 1 - Présentation */}

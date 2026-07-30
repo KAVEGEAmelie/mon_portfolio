@@ -4,12 +4,13 @@ Portfolio personnel moderne et animé présentant mes compétences en développe
 
 ## 🚀 Technologies utilisées
 
-- **Framework**: Next.js 14 (React)
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **Langage**: TypeScript
+- **Framework**: Next.js 16 (React 19, Turbopack)
+- **Styling**: Tailwind CSS 4
+- **Animations**: Framer Motion 12
+- **Langage**: TypeScript 6
 - **Déploiement**: Vercel
-- **Icônes**: Lucide React
+- **Icônes**: Lucide React (+ icônes de marques SVG dans `components/ui/BrandIcons.tsx`)
+- **Formulaire**: EmailJS
 
 ## ✨ Fonctionnalités
 
@@ -20,15 +21,16 @@ Portfolio personnel moderne et animé présentant mes compétences en développe
 - ✅ Formulaire de contact
 - ✅ Timeline animée
 - ✅ Cartes de projets interactives
-- ✅ Performance optimale
-- ✅ SEO friendly
+- ✅ Performance optimale (images WebP compressées)
+- ✅ SEO friendly (sitemap, robots.txt, Open Graph, JSON-LD)
+- ✅ Accessible (labels ARIA, navigation clavier, prefers-reduced-motion)
 
 ## 📦 Installation
 
 1. **Cloner le repository**
 ```bash
-git clone https://github.com/amelie/portfolio.git
-cd portfolio-amelie
+git clone https://github.com/KAVEGEAmelie/mon_portfolio.git
+cd mon_portfolio
 ```
 
 2. **Installer les dépendances**
@@ -36,12 +38,18 @@ cd portfolio-amelie
 npm install
 ```
 
-3. **Lancer le serveur de développement**
+3. **Configurer les variables d'environnement**
+```bash
+cp .env.local.example .env.local
+# puis remplir les clés EmailJS et l'URL du site (voir CONFIGURATION-EMAIL.md)
+```
+
+4. **Lancer le serveur de développement**
 ```bash
 npm run dev
 ```
 
-4. **Ouvrir dans le navigateur**
+5. **Ouvrir dans le navigateur**
 ```
 http://localhost:3000
 ```
@@ -80,8 +88,9 @@ Les couleurs principales sont définies dans `tailwind.config.ts`:
 - Nuances personnalisées de violet disponibles (primary-50 à primary-950)
 
 ### Polices
-- **Display**: Playfair Display (titres)
-- **Body**: Inter (texte)
+- **Titres**: Space Grotesk / Sora
+- **Texte**: Outfit
+- **Signature**: Dancing Script
 
 ## 📱 Pages
 
