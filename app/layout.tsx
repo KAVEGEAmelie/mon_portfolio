@@ -70,7 +70,7 @@ const jsonLd = {
   name: 'KAVEGE Akou Amélie',
   jobTitle: 'Développeuse Web & Mobile',
   url: siteUrl,
-  email: 'mailto:kavegeamelie@gmail.com',
+  email: 'mailto:ameliekavege8@gmail.com',
   address: { '@type': 'PostalAddress', addressLocality: 'Lomé', addressCountry: 'TG' },
   sameAs: [
     'https://github.com/KAVEGEAmelie',

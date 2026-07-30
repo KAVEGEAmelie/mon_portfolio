@@ -8,7 +8,7 @@
 - Vous aurez droit à 200 emails/mois gratuitement
 
 ### 2. Configuration Gmail
-1. **Connecter votre Gmail** (kavegeamelie@gmail.com)
+1. **Connecter votre Gmail** (ameliekavege8@gmail.com)
 2. **Créer un Service** :
    - Choisir "Gmail" comme service
    - Connecter avec votre compte Gmail
@@ -57,7 +57,7 @@ npm install @emailjs/browser
 ### 7. Test
 - Redémarrez votre serveur : `npm run dev`
 - Testez le formulaire
-- Vous devriez recevoir l'email sur kavegeamelie@gmail.com
+- Vous devriez recevoir l'email sur ameliekavege8@gmail.com
 
 ## ⚙️ Configuration Alternative (si problème)
 

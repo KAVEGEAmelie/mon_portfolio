@@ -10,7 +10,7 @@ const socialLinks = [
   { icon: Linkedin, href: 'https://www.linkedin.com/in/amkvg/', label: 'LinkedIn' },
   { icon: Instagram, href: 'https://www.instagram.com/amelie_kaa/', label: 'Instagram' },
   { icon: MessageCircle, href: 'https://wa.me/+22892236069', label: 'WhatsApp' },
-  { icon: Mail, href: 'mailto:kavegeamelie@gmail.com', label: 'Gmail' },
+  { icon: Mail, href: 'mailto:ameliekavege8@gmail.com', label: 'Gmail' },
 ];
 
 export default function Footer() {
