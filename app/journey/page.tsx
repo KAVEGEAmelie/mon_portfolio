@@ -5,14 +5,14 @@ import { GraduationCap, Briefcase, Award, Calendar, MapPin, Star, Target, Rocket
 
 const timelineData = [
   {
-    year: '2022 - Présent',
+    year: '2022 - 2026',
     type: 'education',
     icon: GraduationCap,
-    title: 'Génie Logiciel (3ème année)',
+    title: 'Licence en Génie Logiciel et Systèmes d\'Information',
     subtitle: 'Institution Africaine d\'Informatique',
     location: 'Lomé, Togo',
-    status: 'En cours',
-    description: 'Future diplômée en Génie Logiciel alliant expertise technique et vision managériale. Formation complète en développement full-stack, gestion de projets digitaux et coordination d\'équipes.',
+    status: 'Diplômée',
+    description: 'Licence obtenue après soutenance de mémoire. Formation alliant expertise technique et vision managériale : développement full-stack, gestion de projets digitaux et coordination d\'équipes.',
     highlights: [
       'Architecture et conception logicielle',
       'Développement full-stack avancé',
@@ -81,7 +81,7 @@ const goals = [
     icon: Target,
     title: 'Objectifs immédiats',
     items: [
-      'Finaliser ma formation en Génie Logiciel à l\'IAI-Togo',
+      'Débuter ma carrière professionnelle de développeuse full-stack',
       'Approfondir mes compétences en Laravel et Spring Boot',
       'Contribuer à des projets open source africains'
     ]

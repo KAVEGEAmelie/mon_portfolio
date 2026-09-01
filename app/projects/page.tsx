@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ExternalLink, Calendar, Code2, Smartphone, Globe, Database, Zap } from 'lucide-react'
+import { ExternalLink, Code2, Smartphone, Globe, Database, Zap } from 'lucide-react'
 import { Github } from '@/components/ui/BrandIcons'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -9,36 +9,112 @@ import { useState } from 'react'
 const projects = [
   {
     id: 1,
-    title: 'OwoCash',
-    category: 'Application de Gestion',
-    description: 'Application complète de gestion de caisse avec suivi des transactions, rapports détaillés et interface utilisateur intuitive. Optimisée pour les petites entreprises.',
-    technologies: ['Flutter', 'Firebase', 'Dart', 'PDF'],
-    icon: '💰',
+    title: 'AfrikMode',
+    category: 'Web / Application',
+    description: 'Plateforme e-commerce complète dédiée à la mode africaine. Architecture full-stack avec backend API et frontend moderne.',
+    technologies: ['JavaScript', 'TypeScript', 'Node.js', 'React'],
+    icon: '🛍️',
     gradient: 'from-accent-cyan to-primary-400',
-    date: '2024',
+    date: '2025',
     status: 'Terminé',
-    github: 'https://github.com/amelie/owocash',
+    github: 'https://github.com/KAVEGEAmelie/afrikmode',
+    githubFrontend: 'https://github.com/KAVEGEAmelie/afrikmode-frontend',
     demo: null,
     features: [
-      'Gestion des transactions en temps réel',
-      'Génération automatique de rapports PDF',
-      'Interface mobile responsive et intuitive',
-      'Synchronisation cloud sécurisée',
-      'Analytics et statistiques avancées'
+      'Catalogue produits complet',
+      'Panier et gestion des commandes',
+      'Gestion des boutiques',
+      'Intégration paiement',
+      'Architecture front/back séparée'
     ],
   },
   {
     id: 2,
+    title: 'Hotel_Restaurant',
+    category: 'Web',
+    description: 'Application de gestion complète pour hôtel-restaurant : réservations, chambres, menus et clients.',
+    technologies: ['Laravel', 'Blade', 'PHP', 'MySQL'],
+    icon: '🏨',
+    gradient: 'from-accent-blue to-accent-purple',
+    date: '2025',
+    status: 'Terminé',
+    github: 'https://github.com/KAVEGEAmelie/Hotel_Restaurant',
+    demo: null,
+    features: [
+      'Réservation en ligne',
+      'Gestion des chambres',
+      'Gestion du restaurant et des menus',
+      'Tableau de bord admin'
+    ],
+  },
+  {
+    id: 3,
+    title: 'GestionDeFacture',
+    category: 'Application',
+    description: 'Application desktop de gestion de facturation : création, suivi et export de factures pour petites entreprises.',
+    technologies: ['React', 'Electron', 'JavaScript', 'Node.js'],
+    icon: '🧾',
+    gradient: 'from-accent-green to-accent-cyan',
+    date: '2025',
+    status: 'Terminé',
+    github: 'https://github.com/KAVEGEAmelie/GestionDeFacture',
+    demo: null,
+    features: [
+      'Création de factures',
+      'Gestion des clients',
+      'Suivi des paiements',
+      'Export PDF'
+    ],
+  },
+  {
+    id: 4,
+    title: 'Stockify',
+    category: 'Application',
+    description: "Système de gestion de stock et d'inventaire : entrées/sorties, alertes de seuil et rapports.",
+    technologies: ['Laravel', 'Blade', 'MySQL'],
+    icon: '📦',
+    gradient: 'from-accent-purple to-accent-cyan',
+    date: '2025',
+    status: 'Terminé',
+    github: 'https://github.com/KAVEGEAmelie/stockify',
+    demo: null,
+    features: [
+      "Suivi d'inventaire en temps réel",
+      'Alertes de stock bas',
+      'Gestion des fournisseurs',
+      'Rapports détaillés'
+    ],
+  },
+  {
+    id: 6,
+    title: 'OwoCash',
+    category: 'Mobile',
+    description: 'Application mobile de gestion financière / porte-monnaie électronique développée avec Flutter.',
+    technologies: ['Dart', 'Flutter'],
+    icon: '💰',
+    gradient: 'from-accent-cyan to-primary-400',
+    date: '2024',
+    status: 'Terminé',
+    github: 'https://github.com/KAVEGEAmelie/owocash',
+    demo: null,
+    features: [
+      'Interface mobile native',
+      'Gestion des transactions',
+      'UI moderne'
+    ],
+  },
+  {
+    id: 7,
     title: 'Portfolio Moderne',
-    category: 'Site Web',
+    category: 'Web',
     description: 'Portfolio personnel moderne avec thème sombre, animations fluides et performance optimale. Design responsive et expérience utilisateur soignée.',
     technologies: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'TypeScript'],
     icon: '🌐',
     gradient: 'from-accent-blue to-accent-purple',
-    date: '2024',
+    date: '2025',
     status: 'En cours',
-    github: 'https://github.com/amelie/portfolio',
-    demo: '#',
+    github: 'https://github.com/KAVEGEAmelie/mon_portfolio',
+    demo: null,
     features: [
       'Animations Framer Motion avancées',
       'Thème sombre avec effets néon',
@@ -48,70 +124,82 @@ const projects = [
     ],
   },
   {
-    id: 3,
-    title: 'TaskFlow Pro',
-    category: 'Application Web',
-    description: 'Plateforme de gestion de projets collaborative avec système de notifications, tableaux de bord personnalisables et analytics en temps réel.',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Socket.io'],
-    icon: '✅',
+    id: 8,
+    title: 'TogoStartup',
+    category: 'Web',
+    description: 'Plateforme de promotion et mise en relation des startups togolaises.',
+    technologies: ['Laravel', 'Blade', 'MySQL'],
+    icon: '🚀',
     gradient: 'from-accent-green to-accent-cyan',
-    date: '2023',
+    date: '2025',
     status: 'Terminé',
-    github: 'https://github.com/amelie/taskflow',
+    github: 'https://github.com/KAVEGEAmelie/Togostartup',
     demo: null,
     features: [
-      'Gestion avancée de projets et tâches',
-      'Collaboration en équipe en temps réel',
-      'Notifications intelligentes',
-      'Dashboard analytics personnalisé',
-      'API REST complète'
+      'Annuaire des startups togolaises',
+      'Mise en relation entrepreneurs / partenaires',
+      'Espace de présentation dédié'
     ],
   },
   {
-    id: 4,
-    title: 'ShopApp Mobile',
-    category: 'Application Mobile',
-    description: 'Application e-commerce cross-platform moderne avec panier intelligent, paiement sécurisé et système de fidélité intégré.',
-    technologies: ['Flutter', 'Firebase', 'Stripe', 'FCM'],
-    icon: '🛒',
+    id: 9,
+    title: 'Voyage Sans Frontière',
+    category: 'Web',
+    description: 'Site web pour agence de voyage : destinations, réservations et demandes de devis.',
+    technologies: ['JavaScript', 'HTML/CSS'],
+    icon: '✈️',
     gradient: 'from-accent-purple to-accent-cyan',
-    date: '2023',
+    date: '2025',
     status: 'Terminé',
-    github: 'https://github.com/amelie/shopapp',
+    github: 'https://github.com/KAVEGEAmelie/voyagesansfrontiere',
     demo: null,
     features: [
-      'Catalogue produits avec recherche avancée',
-      'Panier intelligent et paiement sécurisé',
-      'Suivi de commandes en temps réel',
-      'Système de fidélité et promotions',
-      'Notifications push personnalisées'
+      'Catalogue de destinations',
+      'Demandes de réservation',
+      'Formulaire de devis'
     ],
   },
   {
-    id: 5,
-    title: 'TechBlog',
-    category: 'Site Web',
-    description: 'Blog moderne dédié à la technologie avec CMS personnalisé, commentaires interactifs et optimisations SEO avancées.',
-    technologies: ['Next.js', 'MDX', 'Prisma', 'PostgreSQL'],
-    icon: '📝',
+    id: 10,
+    title: 'ConfiFemme',
+    category: 'Web',
+    description: "Plateforme web dédiée à l'accompagnement et l'autonomisation des femmes.",
+    technologies: ['Laravel', 'Blade', 'MySQL'],
+    icon: '👩🏾',
     gradient: 'from-accent-yellow to-accent-green',
-    date: '2023',
+    date: '2025',
     status: 'Terminé',
-    github: 'https://github.com/amelie/techblog',
-    demo: 'https://amelie-techblog.vercel.app',
+    github: 'https://github.com/KAVEGEAmelie/confifemme',
+    demo: null,
     features: [
-      'CMS personnalisé avec éditeur Markdown',
-      'Système de commentaires interactifs',
-      'Optimisations SEO avancées',
-      'Partage sur réseaux sociaux',
-      'Analytics et métriques détaillées'
+      "Accompagnement et ressources dédiées",
+      'Espace communautaire',
+      'Contenus de sensibilisation'
+    ],
+  },
+  {
+    id: 11,
+    title: 'EHCO BTP & Immobilier',
+    category: 'Web',
+    description: "Site vitrine et de gestion pour une entreprise de BTP et d'immobilier : projets, biens et contact.",
+    technologies: ['Laravel', 'Blade', 'MySQL'],
+    icon: '🏗️',
+    gradient: 'from-accent-cyan to-primary-400',
+    date: '2025',
+    status: 'Terminé',
+    github: 'https://github.com/KAVEGEAmelie/ehco-btp-immobilier',
+    demo: null,
+    features: [
+      'Présentation des projets BTP',
+      'Catalogue de biens immobiliers',
+      'Formulaire de contact'
     ],
   },
 ]
 
 const categories = [
   { name: 'Tous', icon: Code2, count: projects.length },
-  { name: 'Web', icon: Globe, count: projects.filter(p => p.category.includes('Site')).length },
+  { name: 'Web', icon: Globe, count: projects.filter(p => p.category.includes('Web')).length },
   { name: 'Mobile', icon: Smartphone, count: projects.filter(p => p.category.includes('Mobile')).length },
   { name: 'Application', icon: Database, count: projects.filter(p => p.category.includes('Application')).length },
 ]
@@ -119,14 +207,9 @@ const categories = [
 export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState('Tous')
   
-  const filteredProjects = selectedCategory === 'Tous' 
-    ? projects 
-    : projects.filter(project => 
-        selectedCategory === 'Web' ? project.category.includes('Site') :
-        selectedCategory === 'Mobile' ? project.category.includes('Mobile') :
-        selectedCategory === 'Application' ? project.category.includes('Application') :
-        false
-      )
+  const filteredProjects = selectedCategory === 'Tous'
+    ? projects
+    : projects.filter(project => project.category.includes(selectedCategory))
 
   return (
     <div className="min-h-screen pt-20 bg-dark-bg">
@@ -247,6 +330,19 @@ export default function Projects() {
                           <Github className="w-4 h-4" />
                         </motion.a>
                       )}
+                      {'githubFrontend' in project && project.githubFrontend && (
+                        <motion.a
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          href={project.githubFrontend}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="Frontend"
+                          className="p-2 bg-dark-surface/50 rounded-lg text-dark-muted hover:text-accent-cyan transition-colors"
+                        >
+                          <Github className="w-4 h-4" />
+                        </motion.a>
+                      )}
                       {project.demo && (
                         <motion.a
                           whileHover={{ scale: 1.1 }}
@@ -267,8 +363,6 @@ export default function Projects() {
                   </h3>
                   
                   <div className="flex items-center gap-2 text-sm text-dark-muted mb-4">
-                    <Calendar className="w-4 h-4" />
-                    <span>{project.date}</span>
                     <span className={`ml-auto px-2 py-1 rounded-full text-xs ${
                       project.status === 'Terminé' 
                         ? 'bg-accent-green/20 text-accent-green' 

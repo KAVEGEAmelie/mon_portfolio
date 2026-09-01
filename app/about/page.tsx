@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Heart, Target, Zap, Users, Code2, BookOpen, Dumbbell, Sparkles, Calendar, Megaphone } from 'lucide-react'
+import { Heart, Target, Zap, Users, Code2, BookOpen, Dumbbell, Sparkles, Calendar, Megaphone, Download } from 'lucide-react'
 
 export default function About() {
   const values = [
@@ -101,16 +101,9 @@ export default function About() {
               <div className="space-y-4 text-dark-muted leading-relaxed font-body">
                 <p>
                   Je suis <span className="text-accent-cyan font-semibold">Akou Amélie KAVEGE</span>,
-                  future diplômée en Génie Logiciel à l'IAI-Togo. Mon parcours est né d'une fascination 
+                  titulaire d'une <span className="text-accent-cyan font-semibold">Licence en Génie Logiciel et Systèmes d'Information</span> obtenue 
+                  à l'IAI-Togo après la soutenance de mon mémoire. Mon parcours est né d'une fascination 
                   pour la capacité du code à transformer une idée complexe en une application fluide et performante.
-                </p>
-                <p>
-                  Spécialisée en développement Web et Mobile, je maîtrise des technologies comme{' '}
-                  <span className="text-accent-cyan font-semibold">Laravel</span>,{' '}
-                  <span className="text-accent-cyan font-semibold">Flutter</span>,{' '}
-                  <span className="text-accent-cyan font-semibold">Node.js</span> et{' '}
-                  <span className="text-accent-cyan font-semibold">Angular</span> pour bâtir des produits 
-                  numériques robustes.
                 </p>
                 <p>
                   Mon rôle ne s'arrête pas à la programmation : j'accompagne également les porteurs de projets 
@@ -121,18 +114,34 @@ export default function About() {
                 </p>
               </div>
 
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="inline-block"
-              >
-                <a 
-                  href="/contact" 
-                  className="btn-primary group"
+              <div className="flex flex-wrap gap-4">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="inline-block"
                 >
-                  <span>Travaillons ensemble</span>
-                  <Heart className="inline-block ml-2 w-5 h-5 group-hover:scale-110 transition-transform" />
-                </a>
-              </motion.div>
+                  <a 
+                    href="/contact" 
+                    className="btn-primary group"
+                  >
+                    <span>Travaillons ensemble</span>
+                    <Heart className="inline-block ml-2 w-5 h-5 group-hover:scale-110 transition-transform" />
+                  </a>
+                </motion.div>
+
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="inline-block"
+                >
+                  <a
+                    href="/cv-amelie-kavege.pdf"
+                    download
+                    className="btn-outline group inline-flex items-center"
+                  >
+                    <span>Télécharger mon CV</span>
+                    <Download className="inline-block ml-2 w-5 h-5 group-hover:translate-y-0.5 transition-transform" />
+                  </a>
+                </motion.div>
+              </div>
             </motion.div>
 
             {/* Colonne Image/Stats */}
