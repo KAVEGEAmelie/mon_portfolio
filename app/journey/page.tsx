@@ -22,23 +22,6 @@ const timelineData = [
     gradient: 'from-accent-cyan to-primary-400',
   },
   {
-    year: 'Nov 2023 - Présent',
-    type: 'project',
-    icon: Award,
-    title: 'Application de Gestion Multi-Caisses',
-    subtitle: 'Projet d\'évaluation',
-    location: 'Lomé, Togo',
-    status: 'En développement',
-    description: 'Conception et développement d\'une application Flutter complète pour la gestion de plusieurs caisses, avec backend Node.js connecté à une base de données MySQL, gestion des ouvertures/clôtures et rapports automatiques.',
-    highlights: [
-      'Architecture Flutter, Node.js & MySQL',
-      'Gestion des sessions de caisse',
-      'Rapports automatiques',
-      'Interface multi-utilisateurs'
-    ],
-    gradient: 'from-accent-purple to-accent-cyan',
-  },
-  {
     year: 'Juin 2025 - Août 2026',
     type: 'experience',
     icon: Briefcase,
