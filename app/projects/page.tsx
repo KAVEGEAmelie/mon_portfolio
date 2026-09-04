@@ -4,9 +4,25 @@ import { motion } from 'framer-motion'
 import { ExternalLink, Code2, Smartphone, Globe, Database, Zap } from 'lucide-react'
 import { Github } from '@/components/ui/BrandIcons'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 
-const projects = [
+const projects: Array<{
+  id: number
+  title: string
+  category: string
+  description: string
+  technologies: string[]
+  icon: string
+  gradient: string
+  date: string
+  status: string
+  github: string
+  githubFrontend?: string
+  demo: string | null
+  image?: string | null
+  features: string[]
+}> = [
   {
     id: 1,
     title: 'AfrikMode',
@@ -20,6 +36,7 @@ const projects = [
     github: 'https://github.com/KAVEGEAmelie/afrikmode',
     githubFrontend: 'https://github.com/KAVEGEAmelie/afrikmode-frontend',
     demo: null,
+    image: '/images/projects/afrikmode.jpeg',
     features: [
       'Catalogue produits complet',
       'Panier et gestion des commandes',
@@ -40,6 +57,7 @@ const projects = [
     status: 'Terminé',
     github: 'https://github.com/KAVEGEAmelie/Hotel_Restaurant',
     demo: null,
+    image: '/images/projects/hotelrestaurant.png',
     features: [
       'Réservation en ligne',
       'Gestion des chambres',
@@ -59,6 +77,7 @@ const projects = [
     status: 'Terminé',
     github: 'https://github.com/KAVEGEAmelie/GestionDeFacture',
     demo: null,
+    image: '/images/projects/gestiondefacture.png',
     features: [
       'Création de factures',
       'Gestion des clients',
@@ -78,29 +97,12 @@ const projects = [
     status: 'Terminé',
     github: 'https://github.com/KAVEGEAmelie/stockify',
     demo: null,
+    image: '/images/projects/stockify.png',
     features: [
       "Suivi d'inventaire en temps réel",
       'Alertes de stock bas',
       'Gestion des fournisseurs',
       'Rapports détaillés'
-    ],
-  },
-  {
-    id: 6,
-    title: 'OwoCash',
-    category: 'Mobile',
-    description: 'Application mobile de gestion financière / porte-monnaie électronique développée avec Flutter.',
-    technologies: ['Dart', 'Flutter'],
-    icon: '💰',
-    gradient: 'from-accent-cyan to-primary-400',
-    date: '2024',
-    status: 'Terminé',
-    github: 'https://github.com/KAVEGEAmelie/owocash',
-    demo: null,
-    features: [
-      'Interface mobile native',
-      'Gestion des transactions',
-      'UI moderne'
     ],
   },
   {
@@ -115,6 +117,7 @@ const projects = [
     status: 'En cours',
     github: 'https://github.com/KAVEGEAmelie/mon_portfolio',
     demo: null,
+    image: '/images/projects/portfolio.png',
     features: [
       'Animations Framer Motion avancées',
       'Thème sombre avec effets néon',
@@ -135,6 +138,7 @@ const projects = [
     status: 'Terminé',
     github: 'https://github.com/KAVEGEAmelie/Togostartup',
     demo: null,
+    image: '/images/projects/togostartup.jpeg',
     features: [
       'Annuaire des startups togolaises',
       'Mise en relation entrepreneurs / partenaires',
@@ -153,6 +157,7 @@ const projects = [
     status: 'Terminé',
     github: 'https://github.com/KAVEGEAmelie/voyagesansfrontiere',
     demo: null,
+    image: '/images/projects/voyagesansfrontiere.png',
     features: [
       'Catalogue de destinations',
       'Demandes de réservation',
@@ -171,6 +176,7 @@ const projects = [
     status: 'Terminé',
     github: 'https://github.com/KAVEGEAmelie/confifemme',
     demo: null,
+    image: '/images/projects/confifemme.jpeg',
     features: [
       "Accompagnement et ressources dédiées",
       'Espace communautaire',
@@ -311,13 +317,28 @@ export default function Projects() {
                 whileHover={{ y: -5 }}
                 className="card-glass rounded-xl overflow-hidden hover-glow group"
               >
+                {/* Image du projet */}
+                {project.image && (
+                  <div className="relative w-full aspect-video overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={`Aperçu du projet ${project.title}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                )}
+
                 {/* Header de projet */}
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-4">
-                    <div className={`p-3 bg-linear-to-br ${project.gradient} rounded-lg group-hover:shadow-lg group-hover:shadow-accent-cyan/20`}>
-                      <span className="text-2xl">{project.icon}</span>
-                    </div>
-                    <div className="flex gap-2">
+                    {!project.image && (
+                      <div className={`p-3 bg-linear-to-br ${project.gradient} rounded-lg group-hover:shadow-lg group-hover:shadow-accent-cyan/20`}>
+                        <span className="text-2xl">{project.icon}</span>
+                      </div>
+                    )}
+                    <div className="flex gap-2 ml-auto">
                       {project.github && (
                         <motion.a
                           whileHover={{ scale: 1.1 }}

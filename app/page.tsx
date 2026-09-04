@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight, Sparkles, Code2, Smartphone } from 'lucide-react'
 import InteractiveProfile from '@/components/ui/InteractiveProfile'
+import CodeBraids from '@/components/ui/CodeBraids'
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <section className="relative min-h-screen pt-20 flex items-center gradient-bg overflow-hidden">
         {/* Background Decorations */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <CodeBraids className="absolute inset-0 w-full h-full opacity-70" />
           <motion.div
             animate={{
               scale: [1, 1.05, 1],
@@ -33,7 +35,7 @@ export default function Home() {
               ease: "easeInOut",
               delay: 2
             }}
-            className="absolute -bottom-20 -left-20 w-96 h-96 bg-primary-400/10 rounded-full blur-3xl"
+            className="absolute -bottom-20 -left-20 w-96 h-96 bg-accent-rose/8 rounded-full blur-3xl"
           />
           <motion.div
             animate={{

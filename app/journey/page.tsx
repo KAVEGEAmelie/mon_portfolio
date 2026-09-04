@@ -29,9 +29,9 @@ const timelineData = [
     subtitle: 'Projet d\'évaluation',
     location: 'Lomé, Togo',
     status: 'En développement',
-    description: 'Conception et développement d\'une application Flutter complète pour la gestion de plusieurs caisses connectées à une base de données MySQL avec gestion des ouvertures/clôtures et rapports automatiques.',
+    description: 'Conception et développement d\'une application Flutter complète pour la gestion de plusieurs caisses, avec backend Node.js connecté à une base de données MySQL, gestion des ouvertures/clôtures et rapports automatiques.',
     highlights: [
-      'Architecture Flutter & MySQL',
+      'Architecture Flutter, Node.js & MySQL',
       'Gestion des sessions de caisse',
       'Rapports automatiques',
       'Interface multi-utilisateurs'
@@ -39,14 +39,14 @@ const timelineData = [
     gradient: 'from-accent-purple to-accent-cyan',
   },
   {
-    year: 'Juil - Sept 2024',
+    year: 'Juin 2025 - Août 2026',
     type: 'experience',
     icon: Briefcase,
     title: 'Développeuse',
     subtitle: 'THESYMO Technologies',
     location: 'Lomé, Togo',
     status: 'Terminé',
-    description: 'Participation active au développement de la plateforme TogoStartup. Intégration et maintenance des fonctionnalités web avec focus sur l\'expérience utilisateur et la performance. Participation au programme C4S prévu en juin 2025.',
+    description: 'Participation active au développement de la plateforme TogoStartup. Intégration et maintenance des fonctionnalités web avec focus sur l\'expérience utilisateur et la performance. Participation au programme C4S en juin 2025.',
     highlights: [
       'Développement plateforme TogoStartup',
       'Intégration de fonctionnalités web',
