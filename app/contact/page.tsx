@@ -21,9 +21,9 @@ export default function Contact() {
     {
       icon: Mail,
       title: 'Email',
-      value: 'ameliekavege8@gmail.com',
+      value: 'amekentreprise@gmail.com',
       description: 'Écrivez-moi directement',
-      action: 'mailto:ameliekavege8@gmail.com',
+      action: 'mailto:amekentreprise@gmail.com',
       gradient: 'from-accent-cyan to-primary-400',
     },
     {
@@ -77,7 +77,7 @@ export default function Contact() {
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          to_email: 'ameliekavege8@gmail.com',
+          to_email: 'amekentreprise@gmail.com',
         },
         publicKey
       )
@@ -313,11 +313,11 @@ export default function Contact() {
                     >
                       <p>{error}</p>
                       <a
-                        href={`mailto:ameliekavege8@gmail.com?subject=${encodeURIComponent(formData.subject || 'Contact portfolio')}&body=${encodeURIComponent(formData.message)}`}
+                        href={`mailto:amekentreprise@gmail.com?subject=${encodeURIComponent(formData.subject || 'Contact portfolio')}&body=${encodeURIComponent(formData.message)}`}
                         className="inline-flex items-center gap-2 mt-2 font-semibold text-accent-cyan hover:underline"
                       >
                         <Mail className="w-4 h-4" aria-hidden="true" />
-                        Envoyer par email à ameliekavege8@gmail.com
+                        Envoyer par email à amekentreprise@gmail.com
                       </a>
                     </motion.div>
                   )}
