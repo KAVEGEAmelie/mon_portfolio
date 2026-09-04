@@ -34,7 +34,7 @@ const dancingScript = Dancing_Script({
   display: 'swap',
 })
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://amelie-portfolio.example.com'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://ameliekvg.vercel.app'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

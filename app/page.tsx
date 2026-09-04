@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { ArrowRight, Sparkles, Code2, Smartphone } from 'lucide-react'
 import InteractiveProfile from '@/components/ui/InteractiveProfile'
 import CodeBraids from '@/components/ui/CodeBraids'
+import PearlThread from '@/components/ui/PearlThread'
 
 export default function Home() {
   return (
@@ -133,29 +134,13 @@ export default function Home() {
                 </Link>
               </motion.div>
 
-              {/* Stats animées */}
+              {/* Fil de parcours */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1 }}
-                className="grid grid-cols-3 gap-6 max-w-xl lg:max-w-lg"
               >
-                {[
-                  { number: '15+', label: 'Projets réalisés' },
-                  { number: '8+', label: 'Technologies maîtrisées' },
-                  { number: '100%', label: 'Passion' },
-                ].map((stat, index) => (
-                  <motion.div
-                    key={stat.label}
-                    whileHover={{ scale: 1.1 }}
-                    className="text-center card-glass p-3 rounded-lg hover-glow"
-                  >
-                    <div className="text-2xl md:text-3xl font-title font-bold gradient-text mb-1 neon-text-soft">
-                      {stat.number}
-                    </div>
-                    <div className="text-xs text-dark-muted font-body">{stat.label}</div>
-                  </motion.div>
-                ))}
+                <PearlThread className="max-w-xl lg:max-w-lg" />
               </motion.div>
             </div>
 
