@@ -69,6 +69,7 @@ const jsonLd = {
   '@type': 'Person',
   name: 'KAVEGE Akou Amélie',
   jobTitle: 'Développeuse Web & Mobile',
+  worksFor: { '@type': 'Organization', name: 'Logex' },
   url: siteUrl,
   email: 'mailto:amekentreprise@gmail.com',
   address: { '@type': 'PostalAddress', addressLocality: 'Lomé', addressCountry: 'TG' },

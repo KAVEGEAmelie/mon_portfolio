@@ -5,6 +5,23 @@ import { GraduationCap, Briefcase, Award, Calendar, MapPin, Star, Target, Rocket
 
 const timelineData = [
   {
+    year: 'Oct 2026 - Aujourd\'hui',
+    type: 'experience',
+    icon: Briefcase,
+    title: 'Assistante IT & Développeuse Web / Mobile',
+    subtitle: 'Société Logex',
+    location: 'Lomé, Togo',
+    status: 'En poste',
+    description: 'Depuis le 13 octobre 2026, j\'occupe un double rôle chez Logex : j\'accompagne le service informatique au quotidien et je conçois et développe les applications web et mobiles de l\'entreprise.',
+    highlights: [
+      'Développement d\'applications web et mobiles',
+      'Support et assistance aux utilisateurs',
+      'Suivi du parc informatique et des équipements',
+      'Contribution aux outils et projets numériques',
+    ],
+    gradient: 'from-accent-cyan to-accent-green',
+  },
+  {
     year: '2022 - 2026',
     type: 'education',
     icon: GraduationCap,
@@ -64,7 +81,7 @@ const goals = [
     icon: Target,
     title: 'Objectifs immédiats',
     items: [
-      'Débuter ma carrière professionnelle de développeuse full-stack',
+      'Développer les solutions web et mobiles de Logex et y monter en compétences',
       'Approfondir mes compétences en Laravel et Spring Boot',
       'Contribuer à des projets open source africains'
     ]
@@ -172,6 +189,7 @@ export default function Journey() {
                           </h3>
                           <span className={`px-3 py-1 rounded-full text-xs font-section ${
                             item.status === 'En cours' ? 'bg-accent-yellow/20 text-accent-yellow' :
+                            item.status === 'En poste' ? 'bg-accent-green/20 text-accent-green border border-accent-green/40' :
                             item.status === 'Réalisé' || item.status === 'Terminé' ? 'bg-accent-green/20 text-accent-green' :
                             'bg-accent-cyan/20 text-accent-cyan'
                           }`}>
