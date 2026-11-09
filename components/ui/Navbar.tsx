@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 
 const navLinks = [
   { name: 'Accueil', path: '/' },
@@ -84,6 +84,14 @@ export default function Navbar() {
                 </motion.div>
               </Link>
             ))}
+            <a
+              href="/cv-amelie-kavege.pdf"
+              download
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent-cyan/60 text-sm font-section text-accent-cyan hover:bg-accent-cyan hover:text-black transition-colors"
+            >
+              <Download className="w-4 h-4" aria-hidden="true" />
+              <span>Télécharger mon CV</span>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -131,6 +139,15 @@ export default function Navbar() {
                   </motion.div>
                 </Link>
               ))}
+              <a
+                href="/cv-amelie-kavege.pdf"
+                download
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-center gap-2 py-3 px-4 rounded-lg border border-accent-cyan/60 font-section text-accent-cyan hover:bg-accent-cyan hover:text-black transition-colors"
+              >
+                <Download className="w-4 h-4" aria-hidden="true" />
+                <span>Télécharger mon CV</span>
+              </a>
             </div>
           </motion.div>
         )}

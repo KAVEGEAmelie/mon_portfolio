@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowRight, Sparkles, Code2, Smartphone } from 'lucide-react'
+import { ArrowRight, Code2, Mail } from 'lucide-react'
 import InteractiveProfile from '@/components/ui/InteractiveProfile'
 import CodeBraids from '@/components/ui/CodeBraids'
 import PearlThread from '@/components/ui/PearlThread'
@@ -66,8 +66,8 @@ export default function Home() {
                 className="inline-flex items-center gap-2 px-5 py-2.5 card-glass
                            rounded-full text-sm font-section text-accent-cyan mb-6 neon-border"
               >
-                <Sparkles className="w-4 h-4" />
-                <span>Portfolio</span>
+                <Code2 className="w-4 h-4" aria-hidden="true" />
+                <span>Développeuse Web</span>
               </motion.div>
 
               {/* Titre principal */}
@@ -81,28 +81,15 @@ export default function Home() {
                 <span className="signature-text text-5xl md:text-7xl text-accent-cyan">Amélie</span>
               </motion.h1>
 
-              {/* Sous-titre animé */}
+              {/* Sous-titre avec barre cyan */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex items-center justify-center lg:justify-start gap-4 mb-5 text-xl md:text-2xl font-section text-dark-text"
+                className="flex items-center justify-center lg:justify-start gap-3 mb-5 text-xl md:text-2xl font-section text-dark-text"
               >
-                <motion.div
-                  animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                  className="text-accent-cyan"
-                >
-                  <Code2 className="w-8 h-8" />
-                </motion.div>
-                <span>Développeuse Web & Mobile</span>
-                <motion.div
-                  animate={{ rotate: [0, -360] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                  className="text-accent-blue"
-                >
-                  <Smartphone className="w-8 h-8" />
-                </motion.div>
+                <span className="w-1 h-7 md:h-8 bg-accent-cyan rounded-full" aria-hidden="true" />
+                <span>Développeuse Web &amp; Mobile</span>
               </motion.div>
 
               {/* Description */}
@@ -129,8 +116,9 @@ export default function Home() {
                   <span>Voir mes projets</span>
                   <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <Link href="/contact" className="btn-outline">
-                  Me contacter
+                <Link href="/contact" className="btn-outline inline-flex items-center gap-2">
+                  <Mail className="w-5 h-5" aria-hidden="true" />
+                  <span>Me contacter</span>
                 </Link>
               </motion.div>
 
