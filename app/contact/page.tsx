@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Mail, MapPin, Phone, Send, CheckCircle, MessageCircle, Calendar } from 'lucide-react'
 import { Github, Linkedin } from '@/components/ui/BrandIcons'
 import emailjs from '@emailjs/browser'
+import { track } from '@vercel/analytics'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -84,6 +85,7 @@ export default function Contact() {
 
       setIsSubmitting(false)
       setIsSubmitted(true)
+      track('Message envoyé', { sujet: (formData.subject || 'Sans sujet').slice(0, 100) })
       setFormData({ name: '', email: '', subject: '', message: '' })
 
       // Reset après 5 secondes

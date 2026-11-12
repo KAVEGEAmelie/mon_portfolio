@@ -4,6 +4,8 @@ import './globals.css'
 import { ThemeProvider } from './contexts/ThemeContext'
 import Navbar from '@/components/ui/Navbar'
 import Footer from '@/components/ui/Footer'
+import ClickTracker from '@/components/ui/ClickTracker'
+import { Analytics } from '@vercel/analytics/next'
 
 // Polices pour le thème sombre moderne
 const spaceGrotesk = Space_Grotesk({
@@ -113,6 +115,8 @@ export default function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
+        <Analytics />
+        <ClickTracker />
       </body>
     </html>
   )

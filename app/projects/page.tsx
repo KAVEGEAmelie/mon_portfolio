@@ -8,6 +8,7 @@ import { Github } from '@/components/ui/BrandIcons'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import { track } from '@vercel/analytics'
 
 const projects: Array<{
   id: number
@@ -553,7 +554,10 @@ export default function Projects() {
                   type="button"
                   role="tab"
                   aria-selected={active}
-                  onClick={() => setSelectedCategory(category.name)}
+                  onClick={() => {
+                    setSelectedCategory(category.name)
+                    track('Filtre projets', { categorie: category.name })
+                  }}
                   className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-section font-medium border transition-all duration-300 ${
                     active
                       ? 'bg-accent-cyan text-black border-accent-cyan shadow-[0_0_20px_rgba(0,212,255,0.45)]'
@@ -576,7 +580,10 @@ export default function Projects() {
                 key={project.id}
                 project={project}
                 index={index}
-                onOpen={() => setOpenProject(project)}
+                onOpen={() => {
+                  setOpenProject(project)
+                  track('Projet consulté', { projet: project.title })
+                }}
               />
             ))}
           </AnimatePresence>
